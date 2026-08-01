@@ -614,18 +614,34 @@
           <linearGradient id="capg" x1="0" y1="0" x2="1" y2="1">
             <stop offset="0%" stop-color="#353CAB"/><stop offset="100%" stop-color="#5B53B8"/>
           </linearGradient>
+          <linearGradient id="tie" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stop-color="#2BC48E"/><stop offset="100%" stop-color="#157A5B"/>
+          </linearGradient>
         </defs>
 
         <!-- aura rings -->
         <circle cx="150" cy="165" r="132" fill="none" stroke="url(#avg)" stroke-width="1.2" opacity="0.25"/>
         <circle cx="150" cy="165" r="120" fill="none" stroke="url(#avg)" stroke-width="0.7" opacity="0.15" stroke-dasharray="4 8"/>
 
-        <!-- body: black mock turtleneck -->
+        <!-- body: broad-shouldered business suit + green AIOS tie -->
         <g id="avatarBody">
-          <path d="M42,350 C52,296 92,266 150,263 C208,266 248,296 258,350 Z" fill="#14161C" stroke="#1D9E75" stroke-width="0.6" stroke-opacity="0.3"/>
-          <!-- shoulder sheen -->
-          <path d="M70,330 C86,296 112,276 150,270" stroke="#2A2F3B" stroke-width="3" fill="none" opacity="0.5"/>
-          <path d="M230,330 C214,296 188,276 150,270" stroke="#2A2F3B" stroke-width="3" fill="none" opacity="0.5"/>
+          <path d="M30,350 C38,298 64,272 100,263 C116,258 133,256 150,256 C167,256 184,258 200,263 C236,272 262,298 270,350 Z" fill="url(#suit)" stroke="#1D9E75" stroke-width="0.6" stroke-opacity="0.25"/>
+          <!-- deltoid definition -->
+          <path d="M52,336 C58,304 74,284 98,272" stroke="#1E3D6B" stroke-width="3" fill="none" opacity="0.55"/>
+          <path d="M248,336 C242,304 226,284 202,272" stroke="#1E3D6B" stroke-width="3" fill="none" opacity="0.55"/>
+          <path d="M118,268 C128,300 140,320 150,330 C160,320 172,300 182,268" stroke="#1E3D6B" stroke-width="2" fill="none" opacity="0.3"/>
+          <!-- shirt -->
+          <path d="M126,260 L150,330 L174,260 Z" fill="#F4F1EA"/>
+          <!-- notch lapels -->
+          <path d="M110,262 L146,312 L126,338 L86,288 Z" fill="#0D1B2E"/>
+          <path d="M190,262 L154,312 L174,338 L214,288 Z" fill="#0D1B2E"/>
+          <!-- green AIOS tie -->
+          <path d="M142,263 L158,263 L155,277 L145,277 Z" fill="url(#tie)"/>
+          <path d="M145,277 L155,277 L160,316 L150,331 L140,316 Z" fill="url(#tie)"/>
+          <text x="150" y="290" text-anchor="middle" style="font-family:'DM Sans',sans-serif;font-size:7.5px;font-weight:700;fill:#FFFFFF">A</text>
+          <text x="150" y="299" text-anchor="middle" style="font-family:'DM Sans',sans-serif;font-size:7.5px;font-weight:700;fill:#FFFFFF">I</text>
+          <text x="150" y="308" text-anchor="middle" style="font-family:'DM Sans',sans-serif;font-size:7.5px;font-weight:700;fill:#FFFFFF">O</text>
+          <text x="150" y="317" text-anchor="middle" style="font-family:'DM Sans',sans-serif;font-size:7.5px;font-weight:700;fill:#FFFFFF">S</text>
         </g>
 
         <!-- head -->
@@ -698,25 +714,20 @@
             <path d="M134,191 Q150,197 166,191 Q166,203 150,205 Q134,203 134,191 Z" fill="#5A2E24"/>
             <path d="M136,192 Q150,197 164,192 L164,196 Q150,199.5 136,196 Z" fill="#FFFFFF"/>
           </g>
-          <!-- sporty baseball cap: wider crown, longer brim, darker purple-blue -->
+          <!-- smooth knit beanie with AIOS tag -->
           <g id="cap">
-            <path d="M90,100 C88,54 116,40 150,40 C184,40 212,54 210,100 Q150,113 90,100 Z" fill="url(#capg)" stroke="#2A2F86" stroke-width="1"/>
-            <path d="M150,41 L150,104" stroke="#2A2F86" stroke-width="0.9" opacity="0.65"/>
-            <path d="M118,48 Q112,72 114,101" stroke="#2A2F86" stroke-width="0.9" opacity="0.65" fill="none"/>
-            <path d="M182,48 Q188,72 186,101" stroke="#2A2F86" stroke-width="0.9" opacity="0.65" fill="none"/>
-            <circle cx="131" cy="56" r="1.6" fill="#2A2F86"/>
-            <circle cx="169" cy="56" r="1.6" fill="#2A2F86"/>
-            <circle cx="150" cy="40" r="3" fill="#2A2F86"/>
-            <text x="150" y="82" text-anchor="middle" style="font-family:'DM Sans',sans-serif;font-size:19px;font-weight:700;letter-spacing:4px;fill:#FFFFFF">AIOS</text>
-            <path d="M78,98 Q150,121 222,98 L218,110 Q150,140 82,110 Z" fill="#272C7E" stroke="#1E2258" stroke-width="0.8"/>
-            <path d="M82,110 Q150,140 218,110" stroke="#141743" stroke-width="1.5" fill="none" opacity="0.7"/>
-            <path d="M78,98 Q150,121 222,98" stroke="#6A71D8" stroke-width="1" fill="none" opacity="0.55"/>
+            <path d="M88,110 C88,54 112,32 150,32 C188,32 212,54 212,110 L212,114 L88,114 Z" fill="#23263A" stroke="#2E3250" stroke-width="1"/>
+            <ellipse cx="132" cy="58" rx="30" ry="16" fill="#FFFFFF" opacity="0.06"/>
+            <rect x="86" y="94" width="128" height="26" rx="10" fill="#2A2E48" stroke="#2E3250" stroke-width="0.8"/>
+            <rect x="137" y="98" width="26" height="17" rx="3" fill="url(#avg)"/>
+            <text x="150" y="110" text-anchor="middle" style="font-family:'DM Sans',sans-serif;font-size:8.5px;font-weight:700;letter-spacing:0.5px;fill:#FFFFFF">AIOS</text>
           </g>
         </g>
-        <!-- turtleneck collar drawn over neck -->
+        <!-- shirt collar drawn over neck -->
         <g>
-          <rect x="116" y="234" width="68" height="34" rx="12" fill="#1B1E26"/>
-          <rect x="116" y="248" width="68" height="8" rx="4" fill="#262B37" opacity="0.8"/>
+          <path d="M131,248 L150,263 L129,270 L122,255 Z" fill="#F4F1EA"/>
+          <path d="M169,248 L150,263 L171,270 L178,255 Z" fill="#F4F1EA"/>
+          <path d="M131,248 L150,263 L169,248 L169,254 L150,268 L131,254 Z" fill="#E3DECF"/>
         </g>
       </svg>
     </div>
