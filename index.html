@@ -617,19 +617,12 @@
         <circle cx="150" cy="165" r="132" fill="none" stroke="url(#avg)" stroke-width="1.2" opacity="0.25"/>
         <circle cx="150" cy="165" r="120" fill="none" stroke="url(#avg)" stroke-width="0.7" opacity="0.15" stroke-dasharray="4 8"/>
 
-        <!-- body -->
+        <!-- body: black mock turtleneck -->
         <g id="avatarBody">
-          <path d="M42,350 C52,296 92,266 150,263 C208,266 248,296 258,350 Z" fill="url(#suit)" stroke="#1D9E75" stroke-width="0.6" stroke-opacity="0.35"/>
-          <!-- shirt -->
-          <path d="M124,268 L150,316 L176,268 C168,262 132,262 124,268 Z" fill="#F4F1EA"/>
-          <!-- open collar -->
-          <path d="M124,268 L138,284 L128,296 L114,274 Z" fill="#E7E2D6"/>
-          <path d="M176,268 L162,284 L172,296 L186,274 Z" fill="#E7E2D6"/>
-          <!-- lapels -->
-          <path d="M112,270 L142,306 L120,336 L94,290 Z" fill="#0D1B2E"/>
-          <path d="M188,270 L158,306 L180,336 L206,290 Z" fill="#0D1B2E"/>
-          <!-- pocket square -->
-          <path d="M196,318 L212,318 L208,306 Z" fill="url(#avg)"/>
+          <path d="M42,350 C52,296 92,266 150,263 C208,266 248,296 258,350 Z" fill="#14161C" stroke="#1D9E75" stroke-width="0.6" stroke-opacity="0.3"/>
+          <!-- shoulder sheen -->
+          <path d="M70,330 C86,296 112,276 150,270" stroke="#2A2F3B" stroke-width="3" fill="none" opacity="0.5"/>
+          <path d="M230,330 C214,296 188,276 150,270" stroke="#2A2F3B" stroke-width="3" fill="none" opacity="0.5"/>
         </g>
 
         <!-- head -->
@@ -643,23 +636,23 @@
           <!-- bald head, sharp angular jaw -->
           <path d="M150,50
                    C104,50 88,86 90,128
-                   C91,152 96,168 104,180
-                   L122,204 C130,214 142,219 150,219
-                   C158,219 170,214 178,204
-                   L196,180 C204,168 209,152 210,128
+                   C91,150 95,164 102,176
+                   L124,205 C132,215 143,220 150,220
+                   C157,220 168,215 176,205
+                   L198,176 C205,164 209,150 210,128
                    C212,86 196,50 150,50 Z" fill="url(#skin)"/>
           <!-- dome highlight -->
           <ellipse cx="138" cy="78" rx="34" ry="16" fill="#FFFFFF" opacity="0.16"/>
-          <!-- cheekbone shading -->
-          <path d="M104,150 C110,162 116,170 124,176" stroke="#C08A5F" stroke-width="2" fill="none" opacity="0.45"/>
-          <path d="M196,150 C190,162 184,170 176,176" stroke="#C08A5F" stroke-width="2" fill="none" opacity="0.45"/>
+          <!-- subtle cheekbone plane -->
+          <path d="M100,152 L112,158 L104,170 Z" fill="#C08A5F" opacity="0.18"/>
+          <path d="M200,152 L188,158 L196,170 Z" fill="#C08A5F" opacity="0.18"/>
           <!-- trimmed stubble along the sharp jaw -->
           <path d="M104,168 C110,186 126,204 150,208 C174,204 190,186 196,168
                    C192,192 174,212 150,214 C126,212 108,192 104,168 Z"
-                fill="#4A3325" opacity="0.28"/>
-          <!-- brows: bold, slightly angled in = sharp focus -->
-          <path d="M110,119 L140,113 L141,120 L111,126 Z" fill="#3B2A1E"/>
-          <path d="M190,119 L160,113 L159,120 L189,126 Z" fill="#3B2A1E"/>
+                fill="#5A5F68" opacity="0.3"/>
+          <!-- brows: bold, straight, slightly angled in = sharp focus -->
+          <path d="M108,117 L142,110 L143,119 L109,127 Z" fill="#33241A"/>
+          <path d="M192,117 L158,110 L157,119 L191,127 Z" fill="#33241A"/>
           <!-- eyes -->
           <g>
             <ellipse cx="127" cy="138" rx="13" ry="7.5" fill="#F8F5EF"/>
@@ -678,6 +671,16 @@
           <!-- lower lids: sharp look -->
           <path d="M116,144 Q127,147 138,144" stroke="#C08A5F" stroke-width="1.4" fill="none" opacity="0.6"/>
           <path d="M162,144 Q173,147 184,144" stroke="#C08A5F" stroke-width="1.4" fill="none" opacity="0.6"/>
+          <!-- thin round glasses -->
+          <g stroke="#C9CDD6" stroke-width="1.7" fill="none" opacity="0.92">
+            <circle cx="127" cy="138" r="16.5"/>
+            <circle cx="173" cy="138" r="16.5"/>
+            <path d="M143.5,138 Q150,133.5 156.5,138"/>
+            <path d="M110.5,137 L95,145"/>
+            <path d="M189.5,137 L205,145"/>
+          </g>
+          <ellipse cx="121" cy="132" rx="6" ry="3" fill="#FFFFFF" opacity="0.12" transform="rotate(-18 121 132)"/>
+          <ellipse cx="167" cy="132" rx="6" ry="3" fill="#FFFFFF" opacity="0.12" transform="rotate(-18 167 132)"/>
           <!-- nose -->
           <path d="M150,142 L146,166 Q150,171 157,167" stroke="#C08A5F" stroke-width="2.2" fill="none" opacity="0.8"/>
           <!-- mouth: confident smile w/ white teeth -->
@@ -690,6 +693,11 @@
             <path d="M131,188 Q150,197 169,188 Q169,207 150,211 Q131,207 131,188 Z" fill="#5A2E24"/>
             <path d="M134,189 Q150,197 166,189 L166,195 Q150,201 134,195 Z" fill="#FFFFFF"/>
           </g>
+        </g>
+        <!-- turtleneck collar drawn over neck -->
+        <g>
+          <rect x="122" y="234" width="56" height="34" rx="12" fill="#1B1E26"/>
+          <rect x="122" y="248" width="56" height="8" rx="4" fill="#262B37" opacity="0.8"/>
         </g>
       </svg>
     </div>
