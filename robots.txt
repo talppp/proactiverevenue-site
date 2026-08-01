@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://proactiverevenue.com/sitemap.xml
