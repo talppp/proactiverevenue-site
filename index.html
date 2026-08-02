@@ -725,7 +725,9 @@
 
     <div>
       <div id="founderSpeech" class="founder-speech"></div>
+      <audio id="founderAudio" src="founder-speech.mp3" preload="auto"></audio>
       <div class="founder-cta-row">
+        <button class="btn-ghost" id="founderPlay" style="padding:13px 26px;font-size:14px">&#128266; Hear Tal speak</button>
         <button class="btn-primary" onclick="window.open('https://calendly.com/tal-sporemba/30min','_blank')">Book Your Free AI Audit</button>
         <span class="founder-note">30 minutes Â· Free Â· No obligation</span>
       </div>
@@ -1512,7 +1514,7 @@
   }, { threshold: 0.15 });
   document.querySelectorAll('.story, .scenario-card').forEach(function (el) { revealObserver.observe(el); });
 
-  // Founder avatar: typewriter speech synced with talking mouth
+  // Founder avatar: typewriter speech synced with talking mouth (+ voice)
   (function () {
     var lines = [
       "I'm Tal, founder of ProActive Revenue.",
@@ -1524,36 +1526,76 @@
     var avatar = document.getElementById('avatarSvg');
     var section = document.getElementById('founder');
     if (!speech || !avatar || !section) return;
-    var li = 0, ci = 0, started = false;
+    var audio = document.getElementById('founderAudio');
+    var playBtn = document.getElementById('founderPlay');
+    var li = 0, ci = 0, started = false, timer = null, charDelay = 26, audioMode = false;
+    var totalChars = lines.join(' ').length;
+    var HEAR_LABEL = 'í ½í´Š Hear Tal speak';
 
     function typeStep() {
       if (li >= lines.length) {
-        avatar.classList.remove('talking');
+        if (!audioMode) avatar.classList.remove('talking');
         speech.classList.remove('founder-caret');
         return;
       }
       if (ci === 0) {
-        var p = document.createElement('p');
-        p.className = 'speech-line';
-        speech.appendChild(p);
-        avatar.classList.add('talking');
+        var pEl = document.createElement('p');
+        pEl.className = 'speech-line';
+        speech.appendChild(pEl);
+        if (!audioMode) avatar.classList.add('talking');
       }
       ci++;
       speech.lastElementChild.textContent = lines[li].slice(0, ci);
       if (ci >= lines[li].length) {
         li++; ci = 0;
-        avatar.classList.remove('talking');
-        setTimeout(typeStep, 700);
+        if (!audioMode) avatar.classList.remove('talking');
+        timer = setTimeout(typeStep, audioMode ? 480 : 700);
       } else {
-        setTimeout(typeStep, 26);
+        timer = setTimeout(typeStep, charDelay);
       }
+    }
+
+    function startTyping(delay, aMode) {
+      if (timer) clearTimeout(timer);
+      li = 0; ci = 0;
+      speech.innerHTML = '';
+      charDelay = delay; audioMode = aMode;
+      speech.classList.add('founder-caret');
+      typeStep();
+    }
+
+    if (audio && playBtn) {
+      playBtn.addEventListener('click', function () {
+        if (!audio.paused) {
+          audio.pause(); audio.currentTime = 0;
+          if (timer) clearTimeout(timer);
+          avatar.classList.remove('talking');
+          speech.classList.remove('founder-caret');
+          playBtn.textContent = HEAR_LABEL;
+          return;
+        }
+        started = true;
+        audio.currentTime = 0;
+        var pr = audio.play();
+        if (pr && pr.catch) pr.catch(function () {});
+      });
+      audio.addEventListener('playing', function () {
+        avatar.classList.add('talking');
+        var dur = (audio.duration && isFinite(audio.duration)) ? audio.duration : 18;
+        var delay = Math.max(16, Math.floor((dur * 1000 * 0.82 - lines.length * 480) / totalChars));
+        startTyping(delay, true);
+        playBtn.textContent = 'â–  Stop';
+      });
+      audio.addEventListener('ended', function () {
+        avatar.classList.remove('talking');
+        playBtn.textContent = HEAR_LABEL;
+      });
     }
 
     // 3D tilt: card follows the cursor, glare tracks the light
     var stage = document.querySelector('.avatar-stage');
-    var card = document.getElementById('avatarSvg');
-    var glare = card ? card.querySelector('.glare') : null;
-    if (stage && card) {
+    var glare = avatar ? avatar.querySelector('.glare') : null;
+    if (stage && avatar) {
       var raf = null;
       stage.addEventListener('mousemove', function (e) {
         var r = stage.getBoundingClientRect();
@@ -1561,8 +1603,8 @@
         var y = (e.clientY - r.top) / r.height - 0.5;
         if (raf) cancelAnimationFrame(raf);
         raf = requestAnimationFrame(function () {
-          card.classList.add('tilting');
-          card.style.transform = 'rotateY(' + (x * 22).toFixed(2) + 'deg) rotateX(' + (-y * 18).toFixed(2) + 'deg) scale(1.05)';
+          avatar.classList.add('tilting');
+          avatar.style.transform = 'rotateY(' + (x * 22).toFixed(2) + 'deg) rotateX(' + (-y * 18).toFixed(2) + 'deg) scale(1.05)';
           if (glare) {
             glare.style.opacity = '0.55';
             glare.style.backgroundPosition = (50 + x * 60).toFixed(1) + '% ' + (35 + y * 50).toFixed(1) + '%';
@@ -1570,8 +1612,8 @@
         });
       });
       stage.addEventListener('mouseleave', function () {
-        card.classList.remove('tilting');
-        card.style.transform = '';
+        avatar.classList.remove('tilting');
+        avatar.style.transform = '';
         if (glare) glare.style.opacity = '0';
       });
     }
@@ -1580,8 +1622,7 @@
       entries.forEach(function (entry) {
         if (entry.isIntersecting && !started) {
           started = true;
-          speech.classList.add('founder-caret');
-          typeStep();
+          startTyping(26, false);
           founderObserver.disconnect();
         }
       });
