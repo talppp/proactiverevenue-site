@@ -300,27 +300,48 @@
     border-radius: 16px; padding: 26px;
   }
   .avatar-wrap svg { width: 100%; height: auto; display: block; }
-  /* photo avatar: cropped portrait from the brand banner + animated mouth overlay */
+  /* photo avatar: body crop from the brand banner + animated mouth/blink overlays */
   .avatar-photo {
     position: relative; overflow: hidden; border-radius: 12px;
     width: 306px; max-width: 100%; margin: 0 auto;
-    aspect-ratio: 206 / 352;
-    animation: photoBreathe 5.5s ease-in-out infinite;
+    aspect-ratio: 560 / 565;
+    animation: photoLive 7s ease-in-out infinite;
+    box-shadow: 0 0 0 1px rgba(29,158,117,0.25);
+  }
+  .avatar-photo::after {
+    content: ''; position: absolute; inset: 0; border-radius: 12px; pointer-events: none;
+    box-shadow: inset 0 0 46px rgba(127,119,221,0.22);
+    animation: photoGlow 4s ease-in-out infinite;
   }
   .avatar-photo img {
     position: absolute; display: block;
-    width: 667.96%; height: auto;
-    left: -283.5%; top: -42.05%;
+    width: 245.7%; height: auto;
+    left: -71.4%; top: -23.9%;
     max-width: none;
   }
   .avatar-wrap svg.mouth-overlay {
     position: absolute; display: block;
-    left: 36.9%; top: 56%;
-    width: 26.7%; height: 7.7%;
+    left: 46.4%; top: 37.2%;
+    width: 9.8%; height: 4.8%;
   }
-  @keyframes photoBreathe {
-    0%, 100% { transform: scale(1); }
-    50%      { transform: scale(1.012); }
+  .avatar-wrap svg.blink-overlay {
+    position: absolute; display: block;
+    left: 44.3%; top: 27.8%;
+    width: 15%; height: 4.1%;
+  }
+  .blink-overlay g { opacity: 0; animation: blinkFlash 4.6s infinite; }
+  @keyframes blinkFlash {
+    0%, 95%, 100% { opacity: 0; }
+    96.5%, 98.5%  { opacity: 1; }
+  }
+  @keyframes photoLive {
+    0%, 100% { transform: scale(1) rotate(0deg); }
+    30%      { transform: scale(1.01) rotate(-0.45deg); }
+    70%      { transform: scale(1.015) rotate(0.45deg); }
+  }
+  @keyframes photoGlow {
+    0%, 100% { opacity: 0.55; }
+    50%      { opacity: 1; }
   }
   #avatarHead {
     transform-origin: 150px 230px; transform-box: view-box;
@@ -662,6 +683,14 @@
           <g id="mouthOpen">
             <path d="M12,16 Q50,30 88,16 Q82,45 50,49 Q18,45 12,16 Z" fill="#5D2E27"/>
             <path d="M18,19 Q50,30 82,19 L82,27 Q50,37 18,27 Z" fill="#F7F3EC"/>
+          </g>
+        </svg>
+        <svg class="blink-overlay" viewBox="0 0 100 30" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+          <g>
+            <rect x="0" y="2" width="40" height="24" rx="10" fill="#F2C29B"/>
+            <path d="M6,18 Q20,24 34,18" stroke="#8A5A3A" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+            <rect x="60" y="2" width="40" height="24" rx="10" fill="#F2C29B"/>
+            <path d="M66,18 Q80,24 94,18" stroke="#8A5A3A" stroke-width="2.5" fill="none" stroke-linecap="round"/>
           </g>
         </svg>
       </div>
