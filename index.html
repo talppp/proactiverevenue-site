@@ -375,11 +375,8 @@
     0%, 93.5%, 100% { transform: scaleY(0); }
     95.5%, 97.5%    { transform: scaleY(1); }
   }
-  #mouthOpen { opacity: 0; }
-  .talking #mouthClosed { animation: mouthA 0.36s steps(1) infinite; }
-  .talking #mouthOpen   { animation: mouthB 0.36s steps(1) infinite; }
-  @keyframes mouthA { 0%, 48% { opacity: 1; } 49%, 100% { opacity: 0; } }
-  @keyframes mouthB { 0%, 48% { opacity: 0; } 49%, 100% { opacity: 1; } }
+  .mouth-overlay .vis { opacity: 0; transition: opacity 0.055s ease; }
+  .mouth-overlay .vis.on { opacity: 1; }
   .founder-speech {
     min-height: 190px; padding: 4px 0 4px 22px;
     border-left: 2px solid; border-image: var(--grad) 1;
@@ -695,9 +692,22 @@
         <img src="founder.jpg" alt="Tal â€” founder of ProActive Revenue">
         </div>
         <svg class="mouth-overlay" viewBox="0 0 100 50" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
-          <g id="mouthOpen">
-            <path d="M12,16 Q50,30 88,16 Q82,45 50,49 Q18,45 12,16 Z" fill="#5D2E27"/>
-            <path d="M18,19 Q50,30 82,19 L82,27 Q50,37 18,27 Z" fill="#F7F3EC"/>
+          <g class="vis" id="vis1">
+            <path d="M20,20 Q50,28 80,20 Q50,35 20,20 Z" fill="#5D2E27"/>
+            <path d="M26,21 Q50,28 74,21 L74,25 Q50,31 26,25 Z" fill="#F7F3EC"/>
+          </g>
+          <g class="vis" id="vis2">
+            <path d="M15,17 Q50,29 85,17 Q79,42 50,46 Q21,42 15,17 Z" fill="#5D2E27"/>
+            <path d="M21,19 Q50,29 79,19 L79,26 Q50,35 21,26 Z" fill="#F7F3EC"/>
+          </g>
+          <g class="vis" id="vis3">
+            <path d="M11,14 Q50,28 89,14 Q83,46 50,50 Q17,46 11,14 Z" fill="#4A241C"/>
+            <path d="M18,17 Q50,28 82,17 L82,25 Q50,35 18,25 Z" fill="#F7F3EC"/>
+            <path d="M32,44 Q50,48 68,44 L68,47 Q50,50 32,47 Z" fill="#C4766B" opacity="0.85"/>
+          </g>
+          <g class="vis" id="vis4">
+            <ellipse cx="50" cy="30" rx="17" ry="14" fill="#4A241C"/>
+            <path d="M36,24 Q50,28 64,24 L64,28 Q50,32 36,28 Z" fill="#F7F3EC" opacity="0.9"/>
           </g>
         </svg>
         <svg class="badge-overlay" viewBox="0 0 150 106" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
@@ -1520,7 +1530,8 @@
       "I'm Tal, founder of ProActive Revenue.",
       "In every business I audit, up to forty percent of the week goes to work a machine should be doing.",
       "We build AI systems that take it off your plate â€” and hand the hours back as revenue.",
-      "The audit is free. The roadmap is yours. Book it."
+      "The audit is free. The roadmap is yours.",
+      "Book a 30-minute audit with me â€” click the Book AI Audit button, NOW. You've got nothing to lose."
     ];
     var speech = document.getElementById('founderSpeech');
     var avatar = document.getElementById('avatarSvg');
@@ -1532,9 +1543,26 @@
     var totalChars = lines.join(' ').length;
     var HEAR_LABEL = 'í ½í´Š Hear Tal speak';
 
+    // natural mouth: cycle 4 viseme shapes with irregular timing
+    var visEls = Array.prototype.slice.call(avatar.querySelectorAll('.mouth-overlay .vis'));
+    var visTimer = null, visCur = -1;
+    function visStep() {
+      var next;
+      do { next = Math.floor(Math.random() * (visEls.length + 1)) - 1; } while (next === visCur);
+      visEls.forEach(function (el, i) { el.classList.toggle('on', i === next); });
+      visCur = next;
+      visTimer = setTimeout(visStep, 70 + Math.random() * 110);
+    }
+    function visStart() { if (!visTimer && visEls.length) visStep(); }
+    function visStop() {
+      if (visTimer) { clearTimeout(visTimer); visTimer = null; }
+      visEls.forEach(function (el) { el.classList.remove('on'); });
+      visCur = -1;
+    }
+
     function typeStep() {
       if (li >= lines.length) {
-        if (!audioMode) avatar.classList.remove('talking');
+        if (!audioMode) avatar.classList.remove('talking'); visStop();
         speech.classList.remove('founder-caret');
         return;
       }
@@ -1542,13 +1570,13 @@
         var pEl = document.createElement('p');
         pEl.className = 'speech-line';
         speech.appendChild(pEl);
-        if (!audioMode) avatar.classList.add('talking');
+        if (!audioMode) avatar.classList.add('talking'); visStart();
       }
       ci++;
       speech.lastElementChild.textContent = lines[li].slice(0, ci);
       if (ci >= lines[li].length) {
         li++; ci = 0;
-        if (!audioMode) avatar.classList.remove('talking');
+        if (!audioMode) avatar.classList.remove('talking'); visStop();
         timer = setTimeout(typeStep, audioMode ? 480 : 700);
       } else {
         timer = setTimeout(typeStep, charDelay);
@@ -1569,7 +1597,7 @@
         if (!audio.paused) {
           audio.pause(); audio.currentTime = 0;
           if (timer) clearTimeout(timer);
-          avatar.classList.remove('talking');
+          avatar.classList.remove('talking'); visStop();
           speech.classList.remove('founder-caret');
           playBtn.textContent = HEAR_LABEL;
           return;
@@ -1580,14 +1608,14 @@
         if (pr && pr.catch) pr.catch(function () {});
       });
       audio.addEventListener('playing', function () {
-        avatar.classList.add('talking');
-        var dur = (audio.duration && isFinite(audio.duration)) ? audio.duration : 18;
+        avatar.classList.add('talking'); visStart();
+        var dur = (audio.duration && isFinite(audio.duration)) ? audio.duration : 24;
         var delay = Math.max(16, Math.floor((dur * 1000 * 0.82 - lines.length * 480) / totalChars));
         startTyping(delay, true);
         playBtn.textContent = 'â–  Stop';
       });
       audio.addEventListener('ended', function () {
-        avatar.classList.remove('talking');
+        avatar.classList.remove('talking'); visStop();
         playBtn.textContent = HEAR_LABEL;
       });
     }
