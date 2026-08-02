@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Document Underwriting — ProActive Revenue Demo</title>
+<style>
+  :root{
+    --bg:#0a1410; --card:#11211a; --accent:#34d399; --accent2:#22d3ee;
+    --text:#e7f5ee; --muted:#8fb3a3; --line:#1d3a2d;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{
+    font-family:'Segoe UI',system-ui,-apple-system,sans-serif;
+    background:radial-gradient(1100px 500px at 50% -10%,#143526 0%,var(--bg) 60%);
+    color:var(--text);min-height:100vh;padding:40px 20px;
+  }
+  .wrap{max-width:1000px;margin:0 auto}
+  .brand{display:flex;align-items:center;gap:10px;margin-bottom:26px}
+  .brand .logo{width:34px;height:34px;border-radius:9px;background:linear-gradient(135deg,var(--accent),#facc15);
+    display:flex;align-items:center;justify-content:center;font-weight:800;color:#08130d}
+  .brand span{font-weight:700;letter-spacing:.4px}
+  .badge{display:inline-block;font-size:12px;letter-spacing:1.4px;text-transform:uppercase;color:var(--accent);
+    border:1px solid var(--accent);border-radius:999px;padding:4px 14px;margin-bottom:14px}
+  h1{font-size:clamp(26px,4vw,38px);line-height:1.15;margin-bottom:10px}
+  h1 em{color:var(--accent);font-style:normal}
+  .sub{color:var(--muted);max-width:660px;font-size:16px;line-height:1.5}
+  .pipeline{display:flex;gap:14px;align-items:stretch;margin:38px 0 26px;flex-wrap:wrap}
+  .step{flex:1;min-width:160px;background:var(--card);border:1px solid var(--line);border-radius:14px;
+    padding:18px 14px;position:relative;opacity:.4;transition:all .5s ease}
+  .step.active{opacity:1;border-color:var(--accent);box-shadow:0 0 26px rgba(52,211,153,.22);transform:translateY(-4px)}
+  .step.done{opacity:1;border-color:var(--accent2);transform:none}
+  .step .icon{font-size:26px;margin-bottom:8px}
+  .step h3{font-size:14px;margin-bottom:5px}
+  .step p{font-size:12px;color:var(--muted);line-height:1.4}
+  .step .check{position:absolute;top:10px;right:10px;width:20px;height:20px;border-radius:50%;
+    background:var(--accent2);color:#08130d;font-size:13px;font-weight:800;display:flex;
+    align-items:center;justify-content:center;opacity:0;transform:scale(.4);transition:all .35s ease}
+  .step.done .check{opacity:1;transform:scale(1)}
+  .panel{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:20px 22px}
+  .panel h4{font-size:12px;letter-spacing:1.4px;text-transform:uppercase;color:var(--muted);margin-bottom:14px}
+  .feed-line{display:flex;gap:10px;font-size:14px;padding:7px 0;opacity:0;transform:translateX(-10px);transition:all .45s ease}
+  .feed-line.show{opacity:1;transform:none}
+  .feed-line .t{color:var(--accent);font-variant-numeric:tabular-nums;min-width:64px}
+  .stats{display:flex;gap:16px;flex-wrap:wrap;margin:26px 0 34px}
+  .stat{flex:1;min-width:180px;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:20px;text-align:center}
+  .stat .num{font-size:32px;font-weight:800;color:var(--accent)}
+  .stat .lbl{font-size:13px;color:var(--muted);margin-top:6px}
+  .cta{text-align:center;margin-top:8px}
+  .cta a{display:inline-block;background:linear-gradient(135deg,var(--accent),#facc15);color:#08130d;
+    font-weight:700;text-decoration:none;padding:14px 34px;border-radius:999px;font-size:16px;
+    box-shadow:0 8px 30px rgba(52,211,153,.3)}
+  .cta p{color:var(--muted);font-size:13px;margin-top:12px}
+  .disclaimer{text-align:center;color:#54705f;font-size:11px;margin-top:30px}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="brand"><div class="logo">P</div><span>ProActive Revenue</span></div>
+  <div class="badge">Live Demo · Underwriting & Insurance</div>
+  <h1>AI Document Extraction: a 4-hour file review done in <em>6 minutes</em></h1>
+  <p class="sub">Loss runs, ACORDs, financials, supplemental apps — your underwriters re-type the same data all day. This automation reads the whole submission stack and hands them a clean risk profile.</p>
+
+  <div class="pipeline">
+    <div class="step"><div class="check">✓</div><div class="icon">📑</div><h3>1. Submission In</h3><p>PDFs, scans and spreadsheets land in one inbox or folder.</p></div>
+    <div class="step"><div class="check">✓</div><div class="icon">🧠</div><h3>2. AI Extraction</h3><p>Every field pulled — named insureds, limits, loss history, financials.</p></div>
+    <div class="step"><div class="check">✓</div><div class="icon">📊</div><h3>3. Risk Profile</h3><p>Structured summary built to your underwriting guidelines.</p></div>
+    <div class="step"><div class="check">✓</div><div class="icon">🚩</div><h3>4. Flags & Exceptions</h3><p>Missing docs, outlier losses and guideline breaches surfaced first.</p></div>
+    <div class="step"><div class="check">✓</div><div class="icon">📝</div><h3>5. Quote-Ready</h3><p>Pre-filled worksheet in your rating system. Human approves, AI assembles.</p></div>
+  </div>
+
+  <div class="panel">
+    <h4>Live activity feed (simulated)</h4>
+    <div class="feed-line"><span class="t">14:30:11</span><span>📑 New submission: <b>Hartwell Logistics LLC</b> — 47 pages across 9 documents.</span></div>
+    <div class="feed-line"><span class="t">14:31:48</span><span>🧠 Extraction complete: 212 fields captured · 5-year loss runs parsed · financials normalized.</span></div>
+    <div class="feed-line"><span class="t">14:32:20</span><span>📊 Risk profile built: fleet of 28 · 2 at-fault claims · revenue trend +14% YoY.</span></div>
+    <div class="feed-line"><span class="t">14:32:24</span><span>🚩 2 flags: missing driver schedule · 2023 claim exceeds guideline threshold.</span></div>
+    <div class="feed-line"><span class="t">14:36:02</span><span>📝 <b>Quote worksheet ready for underwriter review.</b> Total elapsed: 6 minutes. 📈</span></div>
+  </div>
+
+  <div class="stats">
+    <div class="stat"><div class="num" data-target="6" data-suffix=" min">0</div><div class="lbl">Per submission (was ~4 hours)</div></div>
+    <div class="stat"><div class="num" data-target="3" data-suffix="x">0</div><div class="lbl">More submissions quoted per day</div></div>
+    <div class="stat"><div class="num" data-target="100" data-suffix="%">0</div><div class="lbl">Of flags reviewed by a human — AI drafts, you decide</div></div>
+  </div>
+
+  <div class="cta">
+    <a href="https://calendly.com/tal-sporemba/30min">Get Your Free AI Audit →</a>
+    <p>15 minutes. We map where automation pays off in your book. No obligation.</p>
+  </div>
+  <p class="disclaimer">Simulated data for demonstration purposes. · ProActive Revenue LLC · Tal.SPoremba@gmail.com · proactiverevenue.com</p>
+</div>
+
+<script>
+(function(){
+  var steps = Array.prototype.slice.call(document.querySelectorAll('.step'));
+  var lines = Array.prototype.slice.call(document.querySelectorAll('.feed-line'));
+  var STEP_MS = 1600, RESTART_MS = 3500;
+  var statsDone = false;
+
+  function countUp(el){
+    var target = parseInt(el.getAttribute('data-target'), 10);
+    var suffix = el.getAttribute('data-suffix') || '';
+    var start = null, DUR = 900;
+    function tick(ts){
+      if(!start) start = ts;
+      var p = Math.min((ts - start) / DUR, 1);
+      el.textContent = Math.round(target * p) + suffix;
+      if(p < 1) requestAnimationFrame(tick);
+    }
+    requestAnimationFrame(tick);
+    // rAF never fires in hidden/background tabs — guarantee the final value
+    setTimeout(function(){ el.textContent = target + suffix; }, DUR + 250);
+  }
+
+  function runSequence(){
+    steps.forEach(function(s){ s.classList.remove('active','done'); });
+    lines.forEach(function(l){ l.classList.remove('show'); });
+    steps.forEach(function(s, i){
+      setTimeout(function(){
+        if(i > 0){ steps[i-1].classList.remove('active'); steps[i-1].classList.add('done'); }
+        s.classList.add('active');
+        if(lines[i]) lines[i].classList.add('show');
+        if(i === steps.length - 1){
+          setTimeout(function(){
+            s.classList.remove('active'); s.classList.add('done');
+            if(!statsDone){
+              statsDone = true;
+              document.querySelectorAll('.stat .num').forEach(countUp);
+            }
+            setTimeout(runSequence, RESTART_MS);
+          }, STEP_MS);
+        }
+      }, i * STEP_MS);
+    });
+  }
+  runSequence();
+})();
+</script>
+</body>
+</html>

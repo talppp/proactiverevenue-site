@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Speed-to-Lead AI — ProActive Revenue Demo</title>
+<style>
+  :root{
+    --bg:#0b1220; --card:#121b2e; --accent:#22d3ee; --accent2:#34d399;
+    --text:#e6edf7; --muted:#8ea0bd; --line:#1f2c47;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{
+    font-family:'Segoe UI',system-ui,-apple-system,sans-serif;
+    background:radial-gradient(1100px 500px at 50% -10%,#13233f 0%,var(--bg) 60%);
+    color:var(--text);min-height:100vh;padding:40px 20px;
+  }
+  .wrap{max-width:1000px;margin:0 auto}
+  .brand{display:flex;align-items:center;gap:10px;margin-bottom:26px}
+  .brand .logo{width:34px;height:34px;border-radius:9px;background:linear-gradient(135deg,var(--accent),#6366f1);
+    display:flex;align-items:center;justify-content:center;font-weight:800;color:#06121f}
+  .brand span{font-weight:700;letter-spacing:.4px}
+  .badge{display:inline-block;font-size:12px;letter-spacing:1.4px;text-transform:uppercase;color:var(--accent);
+    border:1px solid var(--accent);border-radius:999px;padding:4px 14px;margin-bottom:14px}
+  h1{font-size:clamp(26px,4vw,38px);line-height:1.15;margin-bottom:10px}
+  h1 em{color:var(--accent);font-style:normal}
+  .sub{color:var(--muted);max-width:640px;font-size:16px;line-height:1.5}
+  .pipeline{display:flex;gap:14px;align-items:stretch;margin:38px 0 26px;flex-wrap:wrap}
+  .step{flex:1;min-width:160px;background:var(--card);border:1px solid var(--line);border-radius:14px;
+    padding:18px 14px;position:relative;opacity:.4;transition:all .5s ease}
+  .step.active{opacity:1;border-color:var(--accent);box-shadow:0 0 26px rgba(34,211,238,.22);transform:translateY(-4px)}
+  .step.done{opacity:1;border-color:var(--accent2);transform:none}
+  .step .icon{font-size:26px;margin-bottom:8px}
+  .step h3{font-size:14px;margin-bottom:5px}
+  .step p{font-size:12px;color:var(--muted);line-height:1.4}
+  .step .check{position:absolute;top:10px;right:10px;width:20px;height:20px;border-radius:50%;
+    background:var(--accent2);color:#06121f;font-size:13px;font-weight:800;display:flex;
+    align-items:center;justify-content:center;opacity:0;transform:scale(.4);transition:all .35s ease}
+  .step.done .check{opacity:1;transform:scale(1)}
+  .panel{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:20px 22px}
+  .panel h4{font-size:12px;letter-spacing:1.4px;text-transform:uppercase;color:var(--muted);margin-bottom:14px}
+  .feed-line{display:flex;gap:10px;font-size:14px;padding:7px 0;opacity:0;transform:translateX(-10px);transition:all .45s ease}
+  .feed-line.show{opacity:1;transform:none}
+  .feed-line .t{color:var(--accent);font-variant-numeric:tabular-nums;min-width:64px}
+  .stats{display:flex;gap:16px;flex-wrap:wrap;margin:26px 0 34px}
+  .stat{flex:1;min-width:180px;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:20px;text-align:center}
+  .stat .num{font-size:32px;font-weight:800;color:var(--accent)}
+  .stat .lbl{font-size:13px;color:var(--muted);margin-top:6px}
+  .cta{text-align:center;margin-top:8px}
+  .cta a{display:inline-block;background:linear-gradient(135deg,var(--accent),#6366f1);color:#06121f;
+    font-weight:700;text-decoration:none;padding:14px 34px;border-radius:999px;font-size:16px;
+    box-shadow:0 8px 30px rgba(34,211,238,.3)}
+  .cta p{color:var(--muted);font-size:13px;margin-top:12px}
+  .disclaimer{text-align:center;color:#5b6b88;font-size:11px;margin-top:30px}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="brand"><div class="logo">P</div><span>ProActive Revenue</span></div>
+  <div class="badge">Live Demo · Real Estate</div>
+  <h1>Speed-to-Lead AI: answer every lead in <em>under 90 seconds</em></h1>
+  <p class="sub">78% of buyers go with the agent who responds first. This automation qualifies and replies to every new lead instantly — while you're showing a house.</p>
+
+  <div class="pipeline">
+    <div class="step"><div class="check">✓</div><div class="icon">📥</div><h3>1. Lead Comes In</h3><p>Zillow, Realtor.com, your site or FB ad — captured instantly.</p></div>
+    <div class="step"><div class="check">✓</div><div class="icon">🧠</div><h3>2. AI Qualifies</h3><p>Budget, pre-approval, timeline, area — scored in seconds.</p></div>
+    <div class="step"><div class="check">✓</div><div class="icon">💬</div><h3>3. Instant Reply</h3><p>Personalized SMS + email in your voice, in under 90 seconds.</p></div>
+    <div class="step"><div class="check">✓</div><div class="icon">🗂️</div><h3>4. CRM Updated</h3><p>Lead, score and full conversation logged automatically.</p></div>
+    <div class="step"><div class="check">✓</div><div class="icon">📅</div><h3>5. Showing Booked</h3><p>Hot leads pick a slot straight from your calendar.</p></div>
+  </div>
+
+  <div class="panel">
+    <h4>Live activity feed (simulated)</h4>
+    <div class="feed-line"><span class="t">09:14:02</span><span>🔔 New lead: <b>Sarah M.</b> — Zillow inquiry, 4BR on Maple St.</span></div>
+    <div class="feed-line"><span class="t">09:14:09</span><span>🧠 AI qualified: pre-approved · $520K budget · moving within 30 days · <b>Score: HOT</b></span></div>
+    <div class="feed-line"><span class="t">09:14:47</span><span>💬 SMS sent: “Hi Sarah! Maple St is a great pick — want to see it this weekend?” <b>(45 sec)</b></span></div>
+    <div class="feed-line"><span class="t">09:14:49</span><span>🗂️ CRM updated: contact created, tagged <b>Hot-Buyer-30d</b>, conversation logged.</span></div>
+    <div class="feed-line"><span class="t">09:21:33</span><span>📅 <b>Showing booked: Saturday 10:00 AM.</b> You did nothing. ✨</span></div>
+  </div>
+
+  <div class="stats">
+    <div class="stat"><div class="num" data-target="90" data-suffix=" sec">0</div><div class="lbl">Response time (was 4+ hours)</div></div>
+    <div class="stat"><div class="num" data-target="25" data-suffix="%">0</div><div class="lbl">More leads converted</div></div>
+    <div class="stat"><div class="num" data-target="12" data-suffix=" hrs">0</div><div class="lbl">Saved per week on follow-up</div></div>
+  </div>
+
+  <div class="cta">
+    <a href="https://calendly.com/tal-sporemba/30min">Get Your Free AI Audit →</a>
+    <p>15 minutes. We map where automation pays off in your business. No obligation.</p>
+  </div>
+  <p class="disclaimer">Simulated data for demonstration purposes. · ProActive Revenue LLC · Tal.SPoremba@gmail.com · proactiverevenue.com</p>
+</div>
+
+<script>
+(function(){
+  var steps = Array.prototype.slice.call(document.querySelectorAll('.step'));
+  var lines = Array.prototype.slice.call(document.querySelectorAll('.feed-line'));
+  var STEP_MS = 1600, RESTART_MS = 3500;
+  var statsDone = false;
+
+  function countUp(el){
+    var target = parseInt(el.getAttribute('data-target'), 10);
+    var suffix = el.getAttribute('data-suffix') || '';
+    var start = null, DUR = 900;
+    function tick(ts){
+      if(!start) start = ts;
+      var p = Math.min((ts - start) / DUR, 1);
+      el.textContent = Math.round(target * p) + suffix;
+      if(p < 1) requestAnimationFrame(tick);
+    }
+    requestAnimationFrame(tick);
+    // rAF never fires in hidden/background tabs — guarantee the final value
+    setTimeout(function(){ el.textContent = target + suffix; }, DUR + 250);
+  }
+
+  function runSequence(){
+    steps.forEach(function(s){ s.classList.remove('active','done'); });
+    lines.forEach(function(l){ l.classList.remove('show'); });
+    steps.forEach(function(s, i){
+      setTimeout(function(){
+        if(i > 0){ steps[i-1].classList.remove('active'); steps[i-1].classList.add('done'); }
+        s.classList.add('active');
+        if(lines[i]) lines[i].classList.add('show');
+        if(i === steps.length - 1){
+          setTimeout(function(){
+            s.classList.remove('active'); s.classList.add('done');
+            if(!statsDone){
+              statsDone = true;
+              document.querySelectorAll('.stat .num').forEach(countUp);
+            }
+            setTimeout(runSequence, RESTART_MS);
+          }, STEP_MS);
+        }
+      }, i * STEP_MS);
+    });
+  }
+  runSequence();
+})();
+</script>
+</body>
+</html>
