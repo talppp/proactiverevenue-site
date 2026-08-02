@@ -705,9 +705,16 @@
             <linearGradient id="bogStroke" x1="0" y1="0.5" x2="1" y2="0.5">
               <stop offset="0%" stop-color="#2BBCC1"/><stop offset="100%" stop-color="#A5378D"/>
             </linearGradient>
+            <linearGradient id="bogInner" x1="0" y1="0.5" x2="1" y2="0.5">
+              <stop offset="0%" stop-color="#269AAB"/>
+              <stop offset="25%" stop-color="#23698C"/>
+              <stop offset="50%" stop-color="#29406F"/>
+              <stop offset="75%" stop-color="#453168"/>
+              <stop offset="100%" stop-color="#713078"/>
+            </linearGradient>
           </defs>
           <rect x="4" y="4" width="142" height="98" rx="18" fill="none" stroke="url(#bogStroke)" stroke-width="7" opacity="0.35"/>
-          <rect x="8" y="8" width="134" height="90" rx="15" fill="#2A3C6A" stroke="url(#bogStroke)" stroke-width="8"/>
+          <rect x="8" y="8" width="134" height="90" rx="15" fill="url(#bogInner)" stroke="url(#bogStroke)" stroke-width="8"/>
           <text x="75" y="47" text-anchor="middle" style="font-family:'DM Sans',sans-serif;font-size:25px;font-weight:700;fill:#FFFFFF">Increased</text>
           <text x="75" y="77" text-anchor="middle" style="font-family:'DM Sans',sans-serif;font-size:25px;font-weight:700;fill:#FFFFFF">Revenue</text>
         </svg>
