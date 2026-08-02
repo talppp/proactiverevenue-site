@@ -300,6 +300,27 @@
     border-radius: 16px; padding: 26px;
   }
   .avatar-wrap svg { width: 100%; height: auto; display: block; }
+  /* photo avatar: cropped portrait from the brand banner + animated mouth overlay */
+  .avatar-photo {
+    position: relative; overflow: hidden; border-radius: 12px;
+    aspect-ratio: 206 / 352;
+    animation: photoBreathe 5.5s ease-in-out infinite;
+  }
+  .avatar-photo img {
+    position: absolute; display: block;
+    width: 667.96%; height: auto;
+    left: -283.5%; top: -42.05%;
+    max-width: none;
+  }
+  .avatar-wrap svg.mouth-overlay {
+    position: absolute; display: block;
+    left: 36.9%; top: 56%;
+    width: 26.7%; height: 7.7%;
+  }
+  @keyframes photoBreathe {
+    0%, 100% { transform: scale(1); }
+    50%      { transform: scale(1.012); }
+  }
   #avatarHead {
     transform-origin: 150px 230px; transform-box: view-box;
     animation: headSway 7s ease-in-out infinite;
@@ -634,129 +655,15 @@
 
   <div class="founder-grid">
     <div class="avatar-wrap">
-      <svg id="avatarSvg" viewBox="0 0 300 350" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Animated avatar of Tal, founder of ProActive Revenue">
-        <defs>
-          <linearGradient id="avg" x1="0" y1="0" x2="1" y2="1">
-            <stop offset="0%" stop-color="#1D9E75"/><stop offset="100%" stop-color="#7F77DD"/>
-          </linearGradient>
-          <linearGradient id="skin" x1="0" y1="0" x2="0" y2="1">
-            <stop offset="0%" stop-color="#EDBE92"/><stop offset="100%" stop-color="#D9A176"/>
-          </linearGradient>
-          <linearGradient id="suit" x1="0" y1="0" x2="0" y2="1">
-            <stop offset="0%" stop-color="#12294a"/><stop offset="100%" stop-color="#0A2240"/>
-          </linearGradient>
-          <linearGradient id="capg" x1="0" y1="0" x2="1" y2="1">
-            <stop offset="0%" stop-color="#353CAB"/><stop offset="100%" stop-color="#5B53B8"/>
-          </linearGradient>
-          <linearGradient id="tie" x1="0" y1="0" x2="0" y2="1">
-            <stop offset="0%" stop-color="#7F77DD"/><stop offset="45%" stop-color="#3D6FE0"/><stop offset="100%" stop-color="#1D9E75"/>
-          </linearGradient>
-        </defs>
-
-        <!-- aura rings -->
-        <circle cx="150" cy="165" r="132" fill="none" stroke="url(#avg)" stroke-width="1.2" opacity="0.25"/>
-        <circle cx="150" cy="165" r="120" fill="none" stroke="url(#avg)" stroke-width="0.7" opacity="0.15" stroke-dasharray="4 8"/>
-
-        <!-- body: broad squared shoulders, navy suit, crossed arms, wide tri-tone AIOS tie -->
-        <g id="avatarBody">
-          <!-- torso: wide V-taper, squared shoulder line -->
-          <path d="M28,350 C29,312 34,294 50,285 C60,279 78,273 102,267 C122,261 138,258 150,258 C162,258 178,261 198,267 C222,273 240,279 250,285 C266,294 271,312 272,350 Z" fill="url(#suit)" stroke="#1D9E75" stroke-width="0.6" stroke-opacity="0.25"/>
-          <!-- trap slope + deltoid caps -->
-          <path d="M106,266 C124,259 138,257 150,257 C162,257 176,259 194,266" stroke="#1E3D6B" stroke-width="2" fill="none" opacity="0.5"/>
-          <path d="M44,304 C46,292 54,284 66,279" stroke="#1E3D6B" stroke-width="3" fill="none" opacity="0.55"/>
-          <path d="M256,304 C254,292 246,284 234,279" stroke="#1E3D6B" stroke-width="3" fill="none" opacity="0.55"/>
-          <!-- shirt with buttons -->
-          <path d="M124,259 L150,336 L176,259 Z" fill="#F4F1EA"/>
-          <circle cx="150" cy="288" r="1.8" fill="#C9C2B0"/>
-          <circle cx="150" cy="300" r="1.8" fill="#C9C2B0"/>
-          <!-- wide notch lapels -->
-          <path d="M108,260 L146,314 L124,340 L80,290 Z" fill="#0D1B2E"/>
-          <path d="M192,260 L154,314 L176,340 L220,290 Z" fill="#0D1B2E"/>
-          <!-- wide tri-tone AIOS tie -->
-          <path d="M139,262 L161,262 L157,279 L143,279 Z" fill="url(#tie)"/>
-          <path d="M143,279 L157,279 L164,308 L150,318 L136,308 Z" fill="url(#tie)"/>
-          <text x="150" y="292" text-anchor="middle" style="font-family:'DM Sans',sans-serif;font-size:8px;font-weight:700;fill:#FFFFFF">A I</text>
-          <text x="150" y="303" text-anchor="middle" style="font-family:'DM Sans',sans-serif;font-size:8px;font-weight:700;fill:#FFFFFF">O S</text>
-          <!-- crossed arms -->
-          <path d="M38,346 C66,318 116,306 184,306 C200,306 214,309 224,314 L215,344 C152,332 96,338 50,356 C45,353 41,350 38,346 Z" fill="#102A4E"/>
-          <path d="M42,336 C74,315 124,306 184,306" stroke="#1E3D6B" stroke-width="1.6" fill="none" opacity="0.5"/>
-          <ellipse cx="209" cy="320" rx="9" ry="7" fill="url(#skin)"/>
-          <path d="M262,346 C234,318 184,306 116,306 C100,306 86,309 76,314 L85,344 C148,332 204,338 250,356 C255,353 259,350 262,346 Z" fill="#0E2440"/>
-          <path d="M258,336 C226,315 176,306 116,306" stroke="#1E3D6B" stroke-width="1.6" fill="none" opacity="0.5"/>
-          <ellipse cx="96" cy="322" rx="13" ry="9" fill="url(#skin)"/>
-          <path d="M88,318 L104,317 M88,322 L105,322 M89,326 L104,327" stroke="#C08A5F" stroke-width="1" opacity="0.6"/>
-        </g>
-
-        <!-- head -->
-        <g id="avatarHead">
-          <!-- neck (wide) -->
-          <path d="M125,206 L125,252 C125,268 175,268 175,252 L175,206 Z" fill="url(#skin)"/>
-          <path d="M125,220 C133,234 167,234 175,220 L175,210 L125,210 Z" fill="#C08A5F" opacity="0.45"/>
-          <!-- ears -->
-          <ellipse cx="93" cy="150" rx="8" ry="14" fill="url(#skin)"/>
-          <ellipse cx="207" cy="150" rx="8" ry="14" fill="url(#skin)"/>
-          <!-- bald head, sharp angular jaw -->
-          <path d="M150,50
-                   C104,50 88,86 90,128
-                   C91,150 95,164 102,176
-                   L124,205 C132,215 143,220 150,220
-                   C157,220 168,215 176,205
-                   L198,176 C205,164 209,150 210,128
-                   C212,86 196,50 150,50 Z" fill="url(#skin)"/>
-          <!-- dome highlight -->
-          <ellipse cx="138" cy="78" rx="34" ry="16" fill="#FFFFFF" opacity="0.16"/>
-          <!-- subtle cheekbone plane -->
-          <path d="M100,152 L112,158 L104,170 Z" fill="#C08A5F" opacity="0.18"/>
-          <path d="M200,152 L188,158 L196,170 Z" fill="#C08A5F" opacity="0.18"/>
-          <!-- trimmed stubble along the sharp jaw -->
-          <!-- clean-shaven: faint jaw contour only -->
-          <path d="M103,180 L124,205 C132,215 143,220 150,220 C157,220 168,215 176,205 L197,180"
-                stroke="#C08A5F" stroke-width="2" fill="none" opacity="0.25"/>
-          <!-- brows: natural, lightly arched -->
-          <path d="M112,126 Q128,116 144,122" stroke="#3B2E20" stroke-width="4.2" stroke-linecap="round" fill="none"/>
-          <path d="M188,126 Q172,116 156,122" stroke="#3B2E20" stroke-width="4.2" stroke-linecap="round" fill="none"/>
-          <!-- eyes -->
-          <g>
-            <ellipse cx="127" cy="138" rx="13" ry="8" fill="#F8F5EF"/>
-            <circle cx="127" cy="138" r="6" fill="#6B4423"/>
-            <circle cx="127" cy="138" r="2.8" fill="#1B110A"/>
-            <circle cx="129.5" cy="135.5" r="1.5" fill="#FFFFFF"/>
-            <circle cx="124" cy="140" r="0.8" fill="#FFFFFF" opacity="0.7"/>
-            <rect class="eyelid" x="113" y="129.5" width="28" height="16" rx="7" fill="url(#skin)"/>
-          </g>
-          <g>
-            <ellipse cx="173" cy="138" rx="13" ry="8" fill="#F8F5EF"/>
-            <circle cx="173" cy="138" r="6" fill="#6B4423"/>
-            <circle cx="173" cy="138" r="2.8" fill="#1B110A"/>
-            <circle cx="175.5" cy="135.5" r="1.5" fill="#FFFFFF"/>
-            <circle cx="170" cy="140" r="0.8" fill="#FFFFFF" opacity="0.7"/>
-            <rect class="eyelid right" x="159" y="129.5" width="28" height="16" rx="7" fill="url(#skin)"/>
-          </g>
-          <!-- lower lids: sharp look -->
-          <path d="M116,144 Q127,147 138,144" stroke="#C08A5F" stroke-width="1.4" fill="none" opacity="0.6"/>
-          <path d="M162,144 Q173,147 184,144" stroke="#C08A5F" stroke-width="1.4" fill="none" opacity="0.6"/>
-          <!-- nose -->
-          <path d="M150,142 L146,166 Q150,171 157,167" stroke="#C08A5F" stroke-width="2.2" fill="none" opacity="0.8"/>
-          <!-- mouth: warm executive smile, upper teeth -->
-          <g id="mouthClosed">
-            <path d="M129,188 Q150,200 171,188 Q150,207 129,188 Z" fill="#FFFFFF"/>
-            <path d="M129,188 Q150,200 171,188" stroke="#8A5236" stroke-width="2.2" fill="none" stroke-linecap="round"/>
-            <path d="M137,201 Q150,206 163,201" stroke="#B37E52" stroke-width="1.3" fill="none" opacity="0.55" stroke-linecap="round"/>
-            <path d="M124,182 q-4,5 -2,11" stroke="#C08A5F" stroke-width="1.4" fill="none" opacity="0.45"/>
-            <path d="M176,182 q4,5 2,11" stroke="#C08A5F" stroke-width="1.4" fill="none" opacity="0.45"/>
-          </g>
+      <div id="avatarSvg" class="avatar-photo">
+        <img src="founder.jpg" alt="Tal — founder of ProActive Revenue">
+        <svg class="mouth-overlay" viewBox="0 0 100 50" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
           <g id="mouthOpen">
-            <path d="M134,191 Q150,197 166,191 Q166,203 150,205 Q134,203 134,191 Z" fill="#5A2E24"/>
-            <path d="M136,192 Q150,197 164,192 L164,196 Q150,199.5 136,196 Z" fill="#FFFFFF"/>
+            <path d="M12,16 Q50,30 88,16 Q82,45 50,49 Q18,45 12,16 Z" fill="#5D2E27"/>
+            <path d="M18,19 Q50,30 82,19 L82,27 Q50,37 18,27 Z" fill="#F7F3EC"/>
           </g>
-        </g>
-        <!-- shirt collar drawn over neck -->
-        <g>
-          <path d="M131,248 L150,263 L129,270 L122,255 Z" fill="#F4F1EA"/>
-          <path d="M169,248 L150,263 L171,270 L178,255 Z" fill="#F4F1EA"/>
-          <path d="M131,248 L150,263 L169,248 L169,254 L150,268 L131,254 Z" fill="#E3DECF"/>
-        </g>
-      </svg>
+        </svg>
+      </div>
     </div>
 
     <div>
