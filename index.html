@@ -25,7 +25,7 @@
   "description": "AI consulting agency that implements a full AI Operating System (Business AIOS) — AI audits, custom automations, and revenue-growing AI systems for B2B companies.",
   "slogan": "Revenue grows while you sleep",
   "knowsAbout": ["AI consulting", "business automation", "AI operating system", "AI audit", "workflow automation", "revenue growth"],
-  "sameAs": ["https://useproactiverevenue.pro/", "https://proactiverevenueai.com/"],
+  "sameAs": ["https://proactiverevenueai.com/", "https://www.linkedin.com/in/tal-poremba-106172b4/"],
   "makesOffer": {
     "@type": "Offer",
     "name": "Free AI Audit",
@@ -238,6 +238,30 @@
     letter-spacing: 1px; margin-bottom: 20px; max-width: 600px; margin-inline: auto;
   }
   .cta-section p { color: var(--muted); font-size: 17px; margin-bottom: 40px; }
+
+  /* ── CONTACT GRID ── */
+  .contact-grid {
+    display: grid; grid-template-columns: repeat(3, 1fr);
+    gap: 24px; margin: 60px auto 0; max-width: 1100px; text-align: left;
+  }
+  .contact-card {
+    background: rgba(13,27,46,0.85); border: 1px solid rgba(29,158,117,0.25);
+    border-radius: 14px; padding: 28px;
+  }
+  .contact-card h3 { font-family: 'EB Garamond', serif; font-size: 22px; margin-bottom: 10px; }
+  .contact-card p { font-size: 14px; color: var(--muted); line-height: 1.7; }
+  .contact-card a { color: var(--teal-light); text-decoration: none; }
+  .contact-card a:hover { text-decoration: underline; }
+  .contact-form textarea, .contact-form input[type="tel"] {
+    width: 100%; background: rgba(10,34,64,0.6);
+    border: 1px solid rgba(29,158,117,0.3); border-radius: 8px;
+    color: var(--white); font-family: 'DM Sans', sans-serif; font-size: 14px;
+    padding: 10px 12px; margin-bottom: 10px;
+  }
+  .contact-form textarea { min-height: 96px; resize: vertical; }
+  .contact-form textarea:focus, .contact-form input:focus { outline: none; border-color: var(--teal); }
+  .char-note { font-size: 11px; color: var(--muted); text-align: right; margin: -4px 0 10px; }
+  @media (max-width: 900px) { .contact-grid { grid-template-columns: 1fr; } }
 
   /* ── FOOTER ── */
   footer {
@@ -594,7 +618,8 @@
     <a href="#process">Process</a>
     <a href="#demos">Live Demos</a>
     <a href="#testimonials">Success Stories</a>
-    <a href="#contact">Contact</a>
+    <a href="#founder">About Us</a>
+    <a href="#contact">Contact Us</a>
   </div>
   <button class="nav-cta" onclick="window.open('https://calendly.com/tal-sporemba/30min','_blank')">Book AI Audit</button>
 </nav>
@@ -668,156 +693,6 @@
       <div class="aios-sep"></div>
       <div class="aios-item"><div class="aios-letter">S</div><div class="aios-word">System</div></div>
     </div>
-  </div>
-</section>
-
-<!-- FOUNDER / AVATAR -->
-<section class="founder" id="founder">
-  <div class="section-label">Meet the Founder</div>
-  <h2 class="section-title">The Person Behind <span class="grad">the System</span></h2>
-
-  <div class="founder-grid">
-    <div class="avatar-wrap">
-      <div class="avatar-stage">
-      <div id="avatarSvg" class="avatar-photo">
-        <div class="avatar-crop">
-        <img src="founder.jpg" alt="Tal — founder of ProActive Revenue">
-        </div>
-        <svg class="badge-overlay" viewBox="0 0 150 106" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
-          <defs>
-            <linearGradient id="bogStroke" x1="0" y1="0.5" x2="1" y2="0.5">
-              <stop offset="0%" stop-color="#2BBCC1"/><stop offset="100%" stop-color="#A5378D"/>
-            </linearGradient>
-            <linearGradient id="bogInner" x1="0" y1="0.5" x2="1" y2="0.5">
-              <stop offset="0%" stop-color="#269AAB"/>
-              <stop offset="25%" stop-color="#23698C"/>
-              <stop offset="50%" stop-color="#29406F"/>
-              <stop offset="75%" stop-color="#453168"/>
-              <stop offset="100%" stop-color="#713078"/>
-            </linearGradient>
-          </defs>
-          <rect x="4" y="4" width="142" height="98" rx="18" fill="none" stroke="url(#bogStroke)" stroke-width="7" opacity="0.35"/>
-          <rect x="8" y="8" width="134" height="90" rx="15" fill="url(#bogInner)" stroke="url(#bogStroke)" stroke-width="8"/>
-          <text x="75" y="47" text-anchor="middle" style="font-family:'DM Sans',sans-serif;font-size:25px;font-weight:700;fill:#FFFFFF">Increased</text>
-          <text x="75" y="77" text-anchor="middle" style="font-family:'DM Sans',sans-serif;font-size:25px;font-weight:700;fill:#FFFFFF">Revenue</text>
-        </svg>
-        <div class="glare"></div>
-      </div>
-      </div>
-    </div>
-
-    <div>
-      <div id="founderSpeech" class="founder-speech"></div>
-      <audio id="founderAudio" src="founder-speech.mp3" preload="auto"></audio>
-      <div class="founder-cta-row">
-        <button class="btn-ghost" id="founderPlay" style="padding:13px 26px;font-size:14px">&#128266; Hear Tal speak</button>
-        <button class="btn-primary" onclick="window.open('https://calendly.com/tal-sporemba/30min','_blank')">Book Your Free AI Audit</button>
-        <span class="founder-note">30 minutes · Free · No obligation</span>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- 5 LAYERS -->
-<section class="layers" id="layers">
-  <div class="section-label">The Framework</div>
-  <h2 class="section-title">5-Layer Business <span class="grad">AIOS</span></h2>
-
-  <div class="layers-grid">
-    <div class="layer-card">
-      <div class="layer-num">1</div>
-      <div class="layer-name">Context</div>
-      <div class="layer-desc">AI learns your business — goals, customers, processes, and competitive landscape.</div>
-      <div class="layer-bar"></div>
-    </div>
-    <div class="layer-card">
-      <div class="layer-num">2</div>
-      <div class="layer-name">Data</div>
-      <div class="layer-desc">Everything measured daily. Real-time dashboards that surface what matters.</div>
-      <div class="layer-bar"></div>
-    </div>
-    <div class="layer-card">
-      <div class="layer-num">3</div>
-      <div class="layer-name">Intelligence</div>
-      <div class="layer-desc">Every data point analyzed. Patterns identified. Opportunities surfaced automatically.</div>
-      <div class="layer-bar"></div>
-    </div>
-    <div class="layer-card">
-      <div class="layer-num">4</div>
-      <div class="layer-name">Automations</div>
-      <div class="layer-desc">Daily processes run without you. Follow-ups, reports, and workflows on autopilot.</div>
-      <div class="layer-bar"></div>
-    </div>
-    <div class="layer-card">
-      <div class="layer-num">5</div>
-      <div class="layer-name">Output</div>
-      <div class="layer-desc">Real deliverables produced — briefings, leads, content, and increased revenue.</div>
-      <div class="layer-bar"></div>
-    </div>
-  </div>
-</section>
-
-<!-- PROCESS -->
-<section id="process">
-  <div class="section-label">How It Works</div>
-  <h2 class="section-title">From Audit to <span class="grad">Increased Revenue</span></h2>
-
-  <div class="process-steps">
-    <div class="step">
-      <div class="step-dot">1</div>
-      <div class="step-name">AI Audit</div>
-      <div class="step-desc">We map your current operations and identify every AI opportunity.</div>
-    </div>
-    <div class="step">
-      <div class="step-dot">2</div>
-      <div class="step-name">Next Steps</div>
-      <div class="step-desc">A prioritized roadmap tailored to your revenue goals.</div>
-    </div>
-    <div class="step">
-      <div class="step-dot">3</div>
-      <div class="step-name">Implementation</div>
-      <div class="step-desc">Custom AI solutions built and deployed into your workflow.</div>
-    </div>
-    <div class="step">
-      <div class="step-dot">4</div>
-      <div class="step-name">Daily Briefings</div>
-      <div class="step-desc">Morning reports with insights, alerts, and action items.</div>
-    </div>
-    <div class="step">
-      <div class="step-dot">5</div>
-      <div class="step-name">Revenue Growth</div>
-      <div class="step-desc">Measurable results — more leads, faster closes, lower costs.</div>
-    </div>
-  </div>
-</section>
-
-<!-- LIVE DEMOS -->
-<section class="demos" id="demos">
-  <div class="section-label">Live Demos</div>
-  <h2 class="section-title">Watch the systems <span class="grad">run</span></h2>
-  <p style="color:var(--muted);margin-top:18px;max-width:560px;font-size:16px;line-height:1.7">
-    Each demo is a 30-second animated walkthrough of an automation we build. No sign-up, no video call — just press play on your industry.
-  </p>
-
-  <div class="demo-grid">
-    <a class="demo-card" href="demos/demo-1-speed-to-lead.html">
-      <span class="demo-tag">Real Estate</span>
-      <h3>Speed-to-Lead AI</h3>
-      <p>Every new lead qualified and answered in under 90 seconds — SMS in your voice, CRM updated, showing booked while you're with another client.</p>
-      <span class="demo-link">Watch the pipeline run →</span>
-    </a>
-    <a class="demo-card" href="demos/demo-2-legal-intake.html">
-      <span class="demo-tag">Law Firms</span>
-      <h3>AI Client Intake</h3>
-      <p>Inquiry → AI summary → conflict check → engagement letter out for e-signature. From first contact to signed matter in 15 minutes.</p>
-      <span class="demo-link">Watch the intake flow →</span>
-    </a>
-    <a class="demo-card" href="demos/demo-3-underwriting-extract.html">
-      <span class="demo-tag">Insurance &amp; Underwriting</span>
-      <h3>AI Document Extraction</h3>
-      <p>A 47-page submission stack read, structured, and flagged into a quote-ready risk profile in 6 minutes — your underwriter approves, AI assembles.</p>
-      <span class="demo-link">Watch the extraction →</span>
-    </a>
   </div>
 </section>
 
@@ -939,6 +814,156 @@
     <div class="aios-chip"><b>IMPROVES</b><span>Playbooks and workflows retrain on real results, so what worked yesterday works even better tomorrow.</span></div>
     <div class="aios-chip"><b>MANAGES</b><span>Daily operations run themselves — briefings, follow-ups, reports, and escalations, executed without you.</span></div>
     <div class="aios-chip"><b>ADJUSTS</b><span>When a KPI drifts, the system rebalances priorities and alerts you — before a dip becomes a problem.</span></div>
+  </div>
+</section>
+
+<!-- 5 LAYERS -->
+<section class="layers" id="layers">
+  <div class="section-label">The Framework</div>
+  <h2 class="section-title">5-Layer Business <span class="grad">AIOS</span></h2>
+
+  <div class="layers-grid">
+    <div class="layer-card">
+      <div class="layer-num">1</div>
+      <div class="layer-name">Context</div>
+      <div class="layer-desc">AI learns your business — goals, customers, processes, and competitive landscape.</div>
+      <div class="layer-bar"></div>
+    </div>
+    <div class="layer-card">
+      <div class="layer-num">2</div>
+      <div class="layer-name">Data</div>
+      <div class="layer-desc">Everything measured daily. Real-time dashboards that surface what matters.</div>
+      <div class="layer-bar"></div>
+    </div>
+    <div class="layer-card">
+      <div class="layer-num">3</div>
+      <div class="layer-name">Intelligence</div>
+      <div class="layer-desc">Every data point analyzed. Patterns identified. Opportunities surfaced automatically.</div>
+      <div class="layer-bar"></div>
+    </div>
+    <div class="layer-card">
+      <div class="layer-num">4</div>
+      <div class="layer-name">Automations</div>
+      <div class="layer-desc">Daily processes run without you. Follow-ups, reports, and workflows on autopilot.</div>
+      <div class="layer-bar"></div>
+    </div>
+    <div class="layer-card">
+      <div class="layer-num">5</div>
+      <div class="layer-name">Output</div>
+      <div class="layer-desc">Real deliverables produced — briefings, leads, content, and increased revenue.</div>
+      <div class="layer-bar"></div>
+    </div>
+  </div>
+</section>
+
+<!-- PROCESS -->
+<section id="process">
+  <div class="section-label">How It Works</div>
+  <h2 class="section-title">From Audit to <span class="grad">Increased Revenue</span></h2>
+
+  <div class="process-steps">
+    <div class="step">
+      <div class="step-dot">1</div>
+      <div class="step-name">AI Audit</div>
+      <div class="step-desc">We map your current operations and identify every AI opportunity.</div>
+    </div>
+    <div class="step">
+      <div class="step-dot">2</div>
+      <div class="step-name">Next Steps</div>
+      <div class="step-desc">A prioritized roadmap tailored to your revenue goals.</div>
+    </div>
+    <div class="step">
+      <div class="step-dot">3</div>
+      <div class="step-name">Implementation</div>
+      <div class="step-desc">Custom AI solutions built and deployed into your workflow.</div>
+    </div>
+    <div class="step">
+      <div class="step-dot">4</div>
+      <div class="step-name">Daily Briefings</div>
+      <div class="step-desc">Morning reports with insights, alerts, and action items.</div>
+    </div>
+    <div class="step">
+      <div class="step-dot">5</div>
+      <div class="step-name">Revenue Growth</div>
+      <div class="step-desc">Measurable results — more leads, faster closes, lower costs.</div>
+    </div>
+  </div>
+</section>
+
+<!-- LIVE DEMOS -->
+<section class="demos" id="demos">
+  <div class="section-label">Live Demos</div>
+  <h2 class="section-title">Watch the systems <span class="grad">run</span></h2>
+  <p style="color:var(--muted);margin-top:18px;max-width:560px;font-size:16px;line-height:1.7">
+    Each demo is a 30-second animated walkthrough of an automation we build. No sign-up, no video call — just press play on your industry.
+  </p>
+
+  <div class="demo-grid">
+    <a class="demo-card" href="demos/demo-1-speed-to-lead.html">
+      <span class="demo-tag">Real Estate</span>
+      <h3>Speed-to-Lead AI</h3>
+      <p>Every new lead qualified and answered in under 90 seconds — SMS in your voice, CRM updated, showing booked while you're with another client.</p>
+      <span class="demo-link">Watch the pipeline run →</span>
+    </a>
+    <a class="demo-card" href="demos/demo-2-legal-intake.html">
+      <span class="demo-tag">Law Firms</span>
+      <h3>AI Client Intake</h3>
+      <p>Inquiry → AI summary → conflict check → engagement letter out for e-signature. From first contact to signed matter in 15 minutes.</p>
+      <span class="demo-link">Watch the intake flow →</span>
+    </a>
+    <a class="demo-card" href="demos/demo-3-underwriting-extract.html">
+      <span class="demo-tag">Insurance &amp; Underwriting</span>
+      <h3>AI Document Extraction</h3>
+      <p>A 47-page submission stack read, structured, and flagged into a quote-ready risk profile in 6 minutes — your underwriter approves, AI assembles.</p>
+      <span class="demo-link">Watch the extraction →</span>
+    </a>
+  </div>
+</section>
+
+<!-- FOUNDER / AVATAR -->
+<section class="founder" id="founder">
+  <div class="section-label">Meet the Founder</div>
+  <h2 class="section-title">The Person Behind <span class="grad">the System</span></h2>
+
+  <div class="founder-grid">
+    <div class="avatar-wrap">
+      <div class="avatar-stage">
+      <div id="avatarSvg" class="avatar-photo">
+        <div class="avatar-crop">
+        <img src="founder.jpg" alt="Tal — founder of ProActive Revenue">
+        </div>
+        <svg class="badge-overlay" viewBox="0 0 150 106" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <linearGradient id="bogStroke" x1="0" y1="0.5" x2="1" y2="0.5">
+              <stop offset="0%" stop-color="#2BBCC1"/><stop offset="100%" stop-color="#A5378D"/>
+            </linearGradient>
+            <linearGradient id="bogInner" x1="0" y1="0.5" x2="1" y2="0.5">
+              <stop offset="0%" stop-color="#269AAB"/>
+              <stop offset="25%" stop-color="#23698C"/>
+              <stop offset="50%" stop-color="#29406F"/>
+              <stop offset="75%" stop-color="#453168"/>
+              <stop offset="100%" stop-color="#713078"/>
+            </linearGradient>
+          </defs>
+          <rect x="4" y="4" width="142" height="98" rx="18" fill="none" stroke="url(#bogStroke)" stroke-width="7" opacity="0.35"/>
+          <rect x="8" y="8" width="134" height="90" rx="15" fill="url(#bogInner)" stroke="url(#bogStroke)" stroke-width="8"/>
+          <text x="75" y="47" text-anchor="middle" style="font-family:'DM Sans',sans-serif;font-size:25px;font-weight:700;fill:#FFFFFF">Increased</text>
+          <text x="75" y="77" text-anchor="middle" style="font-family:'DM Sans',sans-serif;font-size:25px;font-weight:700;fill:#FFFFFF">Revenue</text>
+        </svg>
+        <div class="glare"></div>
+      </div>
+      </div>
+    </div>
+
+    <div>
+      <div id="founderSpeech" class="founder-speech"></div>
+      <audio id="founderAudio" src="founder-speech.mp3" preload="auto"></audio>
+      <div class="founder-cta-row">
+        <button class="btn-ghost" id="founderPlay" style="padding:13px 26px;font-size:14px">&#128266; Hear Tal speak</button>
+        <button class="btn-primary" onclick="window.open('https://calendly.com/tal-sporemba/30min','_blank')">Book Your Free AI Audit</button>
+        <span class="founder-note">30 minutes · Free · No obligation</span>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -1468,11 +1493,36 @@
   <p class="scenarios-note">Illustrative scenarios — representative of the systems we design and build in a ProActive Revenue AI Audit.</p>
 </section>
 
-<!-- CTA -->
+<!-- CTA / CONTACT US -->
 <section class="cta-section" id="contact">
   <h2>Ready to install your<br><span style="background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent">Business AIOS?</span></h2>
   <p>Start with a free AI Audit. We'll show you exactly where AI can accelerate your revenue.</p>
   <button class="btn-primary" onclick="window.open('https://calendly.com/tal-sporemba/30min','_blank')" style="font-size:16px;padding:18px 48px">Book Your Free AI Audit</button>
+
+  <div class="contact-grid">
+    <div class="contact-card">
+      <h3>&#128197; Book a Meeting</h3>
+      <p>30 minutes on the calendar. Free audit, zero obligation — just a roadmap.</p>
+      <p style="margin-top:14px"><a href="https://calendly.com/tal-sporemba/30min" target="_blank" rel="noopener">calendly.com/tal-sporemba &#8594;</a></p>
+    </div>
+    <div class="contact-card">
+      <h3>&#9993;&#65039; Email &amp; LinkedIn</h3>
+      <p style="margin-top:6px"><a href="mailto:tal.sporemba@verint.com">tal.sporemba@verint.com</a></p>
+      <p style="margin-top:10px"><a href="https://www.linkedin.com/in/tal-poremba-106172b4/" target="_blank" rel="noopener">LinkedIn &#8594; tal-poremba</a></p>
+    </div>
+    <div class="contact-card">
+      <h3>&#128172; Text Us</h3>
+      <form class="contact-form" action="https://formsubmit.co/tal.sporemba@verint.com" method="POST">
+        <input type="hidden" name="_subject" value="Text from proactiverevenue.com">
+        <input type="hidden" name="_captcha" value="false">
+        <input type="hidden" name="_next" value="https://proactiverevenue.com/#contact">
+        <textarea name="message" maxlength="500" required placeholder="Your message (up to 500 characters)" oninput="document.getElementById('ccount').textContent=this.value.length+'/500'"></textarea>
+        <div class="char-note" id="ccount">0/500</div>
+        <input type="tel" name="phone" required placeholder="Your phone number for the reply">
+        <button class="btn-primary" type="submit" style="width:100%;padding:13px">Send to Tal</button>
+      </form>
+    </div>
+  </div>
 </section>
 
 <!-- FOOTER -->
