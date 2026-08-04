@@ -241,9 +241,11 @@
 
   /* ── CONTACT GRID ── */
   .contact-grid {
-    display: grid; grid-template-columns: repeat(3, 1fr);
-    gap: 24px; margin: 60px auto 0; max-width: 1100px; text-align: left;
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 24px; margin: 60px auto 0; max-width: 1200px; text-align: left;
   }
+  .qr-card { text-align: center; }
+  .qr-card img { width: 150px; height: 150px; border-radius: 10px; background: #fff; padding: 6px; margin: 10px auto 12px; display: block; }
   .contact-card {
     background: rgba(13,27,46,0.85); border: 1px solid rgba(29,158,117,0.25);
     border-radius: 14px; padding: 28px;
@@ -1507,12 +1509,17 @@
     </div>
     <div class="contact-card">
       <h3>&#9993;&#65039; Email &amp; LinkedIn</h3>
-      <p style="margin-top:6px"><a href="mailto:tal.sporemba@verint.com">tal.sporemba@verint.com</a></p>
+      <p style="margin-top:6px"><a href="mailto:tal.sporemba@gmail.com">tal.sporemba@gmail.com</a></p>
       <p style="margin-top:10px"><a href="https://www.linkedin.com/in/tal-poremba-106172b4/" target="_blank" rel="noopener">LinkedIn &#8594; tal-poremba</a></p>
+    </div>
+    <div class="contact-card qr-card">
+      <h3>&#128241; Scan &amp; Share</h3>
+      <img src="qr-proactiverevenue.png" alt="QR code for proactiverevenue.com" loading="lazy">
+      <p>Point a phone camera here — it opens proactiverevenue.com. Save it, share it, put it on a slide.</p>
     </div>
     <div class="contact-card">
       <h3>&#128172; Text Us</h3>
-      <form class="contact-form" action="https://formsubmit.co/tal.sporemba@verint.com" method="POST">
+      <form class="contact-form" action="https://formsubmit.co/tal.sporemba@gmail.com" method="POST">
         <input type="hidden" name="_subject" value="Text from proactiverevenue.com">
         <input type="hidden" name="_captcha" value="false">
         <input type="hidden" name="_next" value="https://proactiverevenue.com/#contact">
