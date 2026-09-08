@@ -10,11 +10,16 @@
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://proactiverevenue.com/">
 <meta property="og:site_name" content="ProActive Revenue">
-<meta property="og:title" content="ProActive Revenue — AI Consulting &amp; Business AIOS">
-<meta property="og:description" content="We implement a full AI Operating System for your business — from audit to automation — so revenue grows while you sleep. Book a free AI Audit.">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="ProActive Revenue — AI Consulting &amp; Business AIOS">
-<meta name="twitter:description" content="Free AI Audit. Custom AI automations. Revenue systems that learn and improve every cycle.">
+<meta property="og:title" content="Every inquiry that waits three days is a client someone else signed">
+<meta property="og:description" content="Custom AI intake and workflow systems for service businesses — every inquiry triaged, answered and booked in minutes.">
+<meta property="og:image" content="https://proactiverevenue.com/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Every inquiry that waits three days is a client someone else signed.">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Every inquiry that waits three days is a client someone else signed">
+<meta name="twitter:description" content="Custom AI intake and workflow systems for service businesses — triaged, answered, booked.">
+<meta name="twitter:image" content="https://proactiverevenue.com/og-image.png">
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg%20viewBox%3D%270%200%2036%2036%27%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%3E%3Ccircle%20cx%3D%274%27%20cy%3D%2718%27%20r%3D%273%27%20fill%3D%27%231D9E75%27%2F%3E%3Ccircle%20cx%3D%2714%27%20cy%3D%2718%27%20r%3D%272.5%27%20fill%3D%27%23AFA9EC%27%2F%3E%3Ccircle%20cx%3D%2728%27%20cy%3D%2714%27%20r%3D%274%27%20fill%3D%27%237F77DD%27%2F%3E%3Ccircle%20cx%3D%2728%27%20cy%3D%2722%27%20r%3D%273%27%20fill%3D%27%231D9E75%27%2F%3E%3Cline%20x1%3D%274%27%20y1%3D%2718%27%20x2%3D%2714%27%20y2%3D%2718%27%20stroke%3D%27%231D9E75%27%2F%3E%3Cline%20x1%3D%2714%27%20y1%3D%2718%27%20x2%3D%2728%27%20y2%3D%2714%27%20stroke%3D%27%237F77DD%27%2F%3E%3C%2Fsvg%3E">
 <script type="application/ld+json">
 {
@@ -111,7 +116,7 @@
   .hero-tag::before { content: ''; width: 6px; height: 6px; border-radius: 50%; background: var(--teal); display: inline-block; }
   .hero h1 {
     font-family: 'EB Garamond', serif;
-    font-size: clamp(52px, 6vw, 88px);
+    font-size: clamp(30px, 7vw, 88px);
     line-height: 1.05; letter-spacing: 2px;
     max-width: 780px;
     animation: fadeUp 0.6s 0.1s ease both;
@@ -121,6 +126,11 @@
     margin-top: 28px; max-width: 520px;
     font-size: 18px; line-height: 1.7; color: var(--muted);
     animation: fadeUp 0.6s 0.2s ease both;
+  }
+  .cta-reassure {
+    margin-top: 18px; max-width: 520px;
+    font-size: 14px; line-height: 1.65; color: var(--muted);
+    animation: fadeUp 0.6s 0.35s ease both;
   }
   .hero-actions {
     display: flex; gap: 16px; margin-top: 44px;
@@ -145,6 +155,7 @@
   /* ── AIOS STRIP ── */
   .aios-strip {
     display: flex; align-items: stretch;
+    width: fit-content; min-width: 0;
     margin-top: 72px; max-width: 580px;
     border-radius: 10px; overflow: hidden;
     border: 1px solid rgba(29,158,117,0.3);
@@ -216,6 +227,14 @@
   .step {
     flex: 1; text-align: center; padding: 0 16px;
   }
+  /* Five steps in a non-wrapping flex row need ~520px of min-content. On a
+     phone that is wider than the viewport, and because body clips overflow,
+     steps 4 and 5 simply disappeared. Wrap them into two columns instead. */
+  @media (max-width: 700px) {
+    .process-steps { flex-wrap: wrap; gap: 30px 0; }
+    .process-steps::before { display: none; }
+    .step { flex: 0 0 50%; padding: 0 10px; }
+  }
   .step-dot {
     width: 56px; height: 56px; border-radius: 50%;
     background: var(--navy2); border: 1px solid rgba(29,158,117,0.4);
@@ -254,7 +273,9 @@
   .contact-card p { font-size: 14px; color: var(--muted); line-height: 1.7; }
   .contact-card a { color: var(--teal-light); text-decoration: none; }
   .contact-card a:hover { text-decoration: underline; }
-  .contact-form textarea, .contact-form input[type="tel"] {
+  .contact-form textarea,
+  .contact-form input[type="tel"],
+  .contact-form input[type="email"] {
     width: 100%; background: rgba(10,34,64,0.6);
     border: 1px solid rgba(29,158,117,0.3); border-radius: 8px;
     color: var(--white); font-family: 'DM Sans', sans-serif; font-size: 14px;
@@ -580,6 +601,14 @@
     opacity: 0.18; pointer-events: none;
     animation: fadeUp 1s 0.5s ease both;
   }
+  @media (max-width: 820px) {
+    .hero { padding: 110px 22px 64px; }
+    .aios-strip { width: 100%; max-width: 100%; margin-top: 48px; }
+    .aios-expand { flex-wrap: wrap; gap: 10px 16px; padding: 12px 14px; }
+    .aios-sep { display: none; }
+    .hero-neural { display: none; }
+    .hero h1 { letter-spacing: 0.5px; }
+  }
 </style>
 </head>
 <body>
@@ -623,7 +652,7 @@
     <a href="#founder">About Us</a>
     <a href="#contact">Contact Us</a>
   </div>
-  <button class="nav-cta" onclick="window.open('https://calendly.com/tal-sporemba/30min','_blank')">Book AI Audit</button>
+  <button class="nav-cta" onclick="window.open('https://calendly.com/tal-sporemba/30min','_blank')">Book a 30-minute review</button>
 </nav>
 
 <!-- HERO -->
@@ -670,21 +699,27 @@
 
   <div class="hero-tag">Business AIOS Framework</div>
 
-  <h1 style="width:fit-content">
-    <span style="display:block">PROACTIVE</span>
-    <span class="grad" style="display:block">REVENUE</span>
+  <h1 style="max-width:26ch">
+    <span style="display:block">Every inquiry that waits three days is</span>
+    <span class="grad" style="display:block">a client someone else signed.</span>
   </h1>
 
   <p class="hero-sub">
-    We implement a full AI Operating System for your business — from audit to automation — so revenue grows while you sleep.
+    I build the intake systems that answer every inquiry in minutes — triaged,
+    routed and booked — so the lead that arrived at 6pm Friday is still yours on Monday.
   </p>
 
   <div class="hero-actions">
-    <button class="btn-primary" onclick="window.open('https://calendly.com/tal-sporemba/30min','_blank')">Book Your AI Audit</button>
+    <button class="btn-primary" onclick="window.open('https://calendly.com/tal-sporemba/30min','_blank')">Book a 30-minute review</button>
     <button class="btn-ghost" onclick="document.getElementById('layers').scrollIntoView({behavior:'smooth'})">See the Framework →</button>
   </div>
 
-  <div class="aios-strip" style="width:fit-content;min-width:0">
+  <p class="cta-reassure">
+    30 minutes, no charge, no pitch deck. You'll leave with a written map of where
+    inquiries are leaking and what it would take to fix it — whether or not you hire me.
+  </p>
+
+  <div class="aios-strip">
     <div class="aios-badge">A·I·O·S</div>
     <div class="aios-expand">
       <div class="aios-item"><div class="aios-letter">A</div><div class="aios-word">Artificial</div></div>
@@ -962,7 +997,7 @@
       <audio id="founderAudio" src="founder-speech.mp3" preload="auto"></audio>
       <div class="founder-cta-row">
         <button class="btn-ghost" id="founderPlay" style="padding:13px 26px;font-size:14px">&#128266; Hear Tal speak</button>
-        <button class="btn-primary" onclick="window.open('https://calendly.com/tal-sporemba/30min','_blank')">Book Your Free AI Audit</button>
+        <button class="btn-primary" onclick="window.open('https://calendly.com/tal-sporemba/30min','_blank')">Book a 30-minute review</button>
         <span class="founder-note">30 minutes · Free · No obligation</span>
       </div>
     </div>
@@ -1499,7 +1534,7 @@
 <section class="cta-section" id="contact">
   <h2>Ready to install your<br><span style="background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent">Business AIOS?</span></h2>
   <p>Start with a free AI Audit. We'll show you exactly where AI can accelerate your revenue.</p>
-  <button class="btn-primary" onclick="window.open('https://calendly.com/tal-sporemba/30min','_blank')" style="font-size:16px;padding:18px 48px">Book Your Free AI Audit</button>
+  <button class="btn-primary" onclick="window.open('https://calendly.com/tal-sporemba/30min','_blank')" style="font-size:16px;padding:18px 48px">Book a 30-minute review</button>
 
   <div class="contact-grid">
     <div class="contact-card">
@@ -1525,7 +1560,9 @@
         <input type="hidden" name="_next" value="https://proactiverevenue.com/#contact">
         <textarea name="message" maxlength="500" required placeholder="Your message (up to 500 characters)" oninput="document.getElementById('ccount').textContent=this.value.length+'/500'"></textarea>
         <div class="char-note" id="ccount">0/500</div>
-        <input type="tel" name="phone" required placeholder="Your phone number for the reply">
+        <input type="email" name="email" required placeholder="Your email — so I can reply">
+        <input type="tel" name="phone" placeholder="Phone (optional)">
+        <input type="text" name="_honey" style="display:none">
         <button class="btn-primary" type="submit" style="width:100%;padding:13px">Send to Tal</button>
       </form>
     </div>
@@ -1561,7 +1598,7 @@
       "In every business I audit, up to forty percent of the week goes to work a machine should be doing.",
       "We build AI systems that take it off your plate — and hand the hours back as revenue.",
       "The audit is free. The roadmap is yours.",
-      "Book a 30-minute audit with me — click the Book AI Audit button, NOW. You've got nothing to lose."
+      "Book a 30-minute review with me — click the button, NOW. You've got nothing to lose."
     ];
     var speech = document.getElementById('founderSpeech');
     var avatar = document.getElementById('avatarSvg');
@@ -1571,7 +1608,7 @@
     var playBtn = document.getElementById('founderPlay');
     var li = 0, ci = 0, started = false, timer = null, charDelay = 26, audioMode = false;
     var totalChars = lines.join(' ').length;
-    var HEAR_LABEL = '������ Hear Tal speak';
+    var HEAR_LABEL = '🔊 Hear Tal speak';
 
     // natural mouth: cycle 4 viseme shapes with irregular timing
     var visEls = [];
