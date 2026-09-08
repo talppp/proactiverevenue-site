@@ -3,36 +3,36 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="canonical" href="https://proactiverevenue.com/demos/demo-3-underwriting-extract.html">
-<meta name="description" content="Read, structured and flagged in six minutes — your underwriter approves, the system assembles.">
+<link rel="canonical" href="https://proactiverevenue.com/demos/demo-5-records-chronology.html">
+<meta name="description" content="Every line traces back to the page it came from, and treatment gaps are flagged before opposing counsel finds them.">
 <meta property="og:type" content="article">
 <meta property="og:site_name" content="ProActive Revenue">
-<meta property="og:url" content="https://proactiverevenue.com/demos/demo-3-underwriting-extract.html">
-<meta property="og:title" content="AI Document Extraction: a 47-page submission to a quote-ready risk profile">
-<meta property="og:description" content="Read, structured and flagged in six minutes — your underwriter approves, the system assembles.">
+<meta property="og:url" content="https://proactiverevenue.com/demos/demo-5-records-chronology.html">
+<meta property="og:title" content="AI Records Review: a sourced medical chronology in under 30 minutes">
+<meta property="og:description" content="Every line traces back to the page it came from, and treatment gaps are flagged before opposing counsel finds them.">
 <meta property="og:image" content="https://proactiverevenue.com/og-image.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="AI Document Extraction: a 47-page submission to a quote-ready risk profile">
-<meta name="twitter:description" content="Read, structured and flagged in six minutes — your underwriter approves, the system assembles.">
+<meta name="twitter:title" content="AI Records Review: a sourced medical chronology in under 30 minutes">
+<meta name="twitter:description" content="Every line traces back to the page it came from, and treatment gaps are flagged before opposing counsel finds them.">
 <meta name="twitter:image" content="https://proactiverevenue.com/og-image.png">
-<title>AI Document Underwriting — ProActive Revenue Demo</title>
+<title>AI Records Review — ProActive Revenue Demo</title>
 <style>
   :root{
-    --bg:#0a1410; --card:#11211a; --accent:#34d399; --accent2:#22d3ee;
-    --text:#e7f5ee; --muted:#8fb3a3; --line:#1d3a2d;
+    --bg:#0e0f1d; --card:#171930; --accent:#a78bfa; --accent2:#34d399;
+    --text:#e9e8f7; --muted:#9a98bd; --line:#272a4d;
   }
   *{box-sizing:border-box;margin:0;padding:0}
   body{
     font-family:'Segoe UI',system-ui,-apple-system,sans-serif;
-    background:radial-gradient(1100px 500px at 50% -10%,#143526 0%,var(--bg) 60%);
+    background:radial-gradient(1100px 500px at 50% -10%,#1d1f42 0%,var(--bg) 60%);
     color:var(--text);min-height:100vh;padding:40px 20px;
   }
   .wrap{max-width:1000px;margin:0 auto}
   .brand{display:flex;align-items:center;gap:10px;margin-bottom:26px}
-  .brand .logo{width:34px;height:34px;border-radius:9px;background:linear-gradient(135deg,var(--accent),#facc15);
-    display:flex;align-items:center;justify-content:center;font-weight:800;color:#08130d}
+  .brand .logo{width:34px;height:34px;border-radius:9px;background:linear-gradient(135deg,var(--accent),#f472b6);
+    display:flex;align-items:center;justify-content:center;font-weight:800;color:#100b1f}
   .brand span{font-weight:700;letter-spacing:.4px}
   .badge{display:inline-block;font-size:12px;letter-spacing:1.4px;text-transform:uppercase;color:var(--accent);
     border:1px solid var(--accent);border-radius:999px;padding:4px 14px;margin-bottom:14px}
@@ -42,13 +42,13 @@
   .pipeline{display:flex;gap:14px;align-items:stretch;margin:38px 0 26px;flex-wrap:wrap}
   .step{flex:1;min-width:160px;background:var(--card);border:1px solid var(--line);border-radius:14px;
     padding:18px 14px;position:relative;opacity:.4;transition:all .5s ease}
-  .step.active{opacity:1;border-color:var(--accent);box-shadow:0 0 26px rgba(52,211,153,.22);transform:translateY(-4px)}
+  .step.active{opacity:1;border-color:var(--accent);box-shadow:0 0 26px rgba(167,139,250,.25);transform:translateY(-4px)}
   .step.done{opacity:1;border-color:var(--accent2);transform:none}
   .step .icon{font-size:26px;margin-bottom:8px}
   .step h3{font-size:14px;margin-bottom:5px}
   .step p{font-size:12px;color:var(--muted);line-height:1.4}
   .step .check{position:absolute;top:10px;right:10px;width:20px;height:20px;border-radius:50%;
-    background:var(--accent2);color:#08130d;font-size:13px;font-weight:800;display:flex;
+    background:var(--accent2);color:#100b1f;font-size:13px;font-weight:800;display:flex;
     align-items:center;justify-content:center;opacity:0;transform:scale(.4);transition:all .35s ease}
   .step.done .check{opacity:1;transform:scale(1)}
   .panel{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:20px 22px}
@@ -61,46 +61,46 @@
   .stat .num{font-size:32px;font-weight:800;color:var(--accent)}
   .stat .lbl{font-size:13px;color:var(--muted);margin-top:6px}
   .cta{text-align:center;margin-top:8px}
-  .cta a{display:inline-block;background:linear-gradient(135deg,var(--accent),#facc15);color:#08130d;
+  .cta a{display:inline-block;background:linear-gradient(135deg,var(--accent),#f472b6);color:#100b1f;
     font-weight:700;text-decoration:none;padding:14px 34px;border-radius:999px;font-size:16px;
-    box-shadow:0 8px 30px rgba(52,211,153,.3)}
+    box-shadow:0 8px 30px rgba(167,139,250,.3)}
   .cta p{color:var(--muted);font-size:13px;margin-top:12px}
-  .disclaimer{text-align:center;color:#54705f;font-size:11px;margin-top:30px}
+  .disclaimer{text-align:center;color:#5f5d80;font-size:11px;margin-top:30px}
 </style>
 </head>
 <body>
 <div class="wrap">
   <div class="brand"><div class="logo">P</div><span>ProActive Revenue</span></div>
-  <div class="badge">Live Demo · Underwriting & Insurance</div>
-  <h1>AI Document Extraction: a 4-hour file review done in <em>6 minutes</em></h1>
-  <p class="sub">Loss runs, ACORDs, financials, supplemental apps — your underwriters re-type the same data all day. This automation reads the whole submission stack and hands them a clean risk profile.</p>
+  <div class="badge">Live Demo · Personal Injury</div>
+  <h1>AI Records Review: a sourced chronology in <em>under 30 minutes</em></h1>
+  <p class="sub">A 1,100-page file, seven providers, repeat faxes of the same chart. The vendors who sell this work quote 8 to 20 hours; ask your own paralegal what the last one really cost.</p>
 
   <div class="pipeline">
-    <div class="step"><div class="check">✓</div><div class="icon">📑</div><h3>1. Submission In</h3><p>PDFs, scans and spreadsheets land in one inbox or folder.</p></div>
-    <div class="step"><div class="check">✓</div><div class="icon">🧠</div><h3>2. AI Extraction</h3><p>Every field pulled — named insureds, limits, loss history, financials.</p></div>
-    <div class="step"><div class="check">✓</div><div class="icon">📊</div><h3>3. Risk Profile</h3><p>Structured summary built to your underwriting guidelines.</p></div>
-    <div class="step"><div class="check">✓</div><div class="icon">🚩</div><h3>4. Flags & Exceptions</h3><p>Missing docs, outlier losses and guideline breaches surfaced first.</p></div>
-    <div class="step"><div class="check">✓</div><div class="icon">📝</div><h3>5. Quote-Ready</h3><p>Pre-filled worksheet in your rating system. Human approves, AI assembles.</p></div>
+    <div class="step"><div class="check">✓</div><div class="icon">📥</div><h3>1. Records Arrive</h3><p>Provider PDFs, billing and imaging reports land in one intake folder, however they were sent.</p></div>
+    <div class="step"><div class="check">✓</div><div class="icon">🔀</div><h3>2. Split by Provider</h3><p>OCR&#x27;d, de-duplicated, and separated by treating provider and date of service.</p></div>
+    <div class="step"><div class="check">✓</div><div class="icon">🧾</div><h3>3. Events Extracted</h3><p>Every visit, diagnosis, procedure, medication and work restriction pulled with its page cite.</p></div>
+    <div class="step"><div class="check">✓</div><div class="icon">🧭</div><h3>4. Chronology Built</h3><p>One dated timeline, every line linked back to the exact source page it came from.</p></div>
+    <div class="step"><div class="check">✓</div><div class="icon">🚩</div><h3>5. Gaps Flagged</h3><p>Treatment gaps, contradictory notes and missing records surfaced before the other side finds them.</p></div>
   </div>
 
   <div class="panel">
     <h4>Live activity feed (simulated)</h4>
-    <div class="feed-line"><span class="t">14:30:11</span><span>📑 New submission: <b>Hartwell Logistics LLC</b> — 47 pages across 9 documents.</span></div>
-    <div class="feed-line"><span class="t">14:31:48</span><span>🧠 Extraction complete: 212 fields captured · 5-year loss runs parsed · financials normalized.</span></div>
-    <div class="feed-line"><span class="t">14:32:20</span><span>📊 Risk profile built: fleet of 28 · 2 at-fault claims · revenue trend +14% YoY.</span></div>
-    <div class="feed-line"><span class="t">14:32:24</span><span>🚩 2 flags: missing driver schedule · 2023 claim exceeds guideline threshold.</span></div>
-    <div class="feed-line"><span class="t">14:36:02</span><span>📝 <b>Quote worksheet ready for underwriter review.</b> Total elapsed: 6 minutes. 📈</span></div>
+    <div class="feed-line"><span class="t">11:00:04</span><span>1,148 pages ingested — <b>seven providers</b> identified.</span></div>
+    <div class="feed-line"><span class="t">11:04:37</span><span>Duplicates removed — <b>212 pages</b> were repeat faxes of the same chart.</span></div>
+    <div class="feed-line"><span class="t">11:11:52</span><span>318 clinical events extracted, each carrying a <b>page cite</b>.</span></div>
+    <div class="feed-line"><span class="t">11:19:08</span><span><b>41-day treatment gap</b> flagged — the defense would have found it first.</span></div>
+    <div class="feed-line"><span class="t">11:26:40</span><span>Chronology ready for attorney review — <b>every line sourced</b>.</span></div>
   </div>
 
   <div class="stats">
-    <div class="stat"><div class="num" data-target="6" data-suffix=" min">0</div><div class="lbl">Per submission (was ~4 hours)</div></div>
-    <div class="stat"><div class="num" data-target="3" data-suffix="x">0</div><div class="lbl">More submissions quoted per day</div></div>
-    <div class="stat"><div class="num" data-target="100" data-suffix="%">0</div><div class="lbl">Of flags reviewed by a human — AI drafts, you decide</div></div>
+    <div class="stat"><div class="num" data-target="8" data-suffix="–20 hrs">0</div><div class="lbl">manual chronology (vendor estimate)</div></div>
+    <div class="stat"><div class="num" data-target="100" data-suffix="%">0</div><div class="lbl">of lines carry a page cite</div></div>
+    <div class="stat"><div class="num" data-target="0" data-suffix="">0</div><div class="lbl">records leave systems you own</div></div>
   </div>
 
   <div class="cta">
     <a href="https://calendly.com/tal-sporemba/30min">Book a 30-minute review →</a>
-    <p>15 minutes. We map where automation pays off in your book. No obligation.</p>
+    <p>30 minutes. We map where automation pays off in your practice. No obligation.</p>
   </div>
   <p class="disclaimer">Simulated data for demonstration purposes. · ProActive Revenue LLC · Tal.SPoremba@gmail.com · proactiverevenue.com</p>
 </div>
