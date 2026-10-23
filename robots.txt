@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://proactiverevenue.com/sitemap.xml
+Sitemap: https://www.proactiverevenue.com/sitemap.xml
